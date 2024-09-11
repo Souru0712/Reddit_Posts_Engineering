@@ -1,0 +1,26 @@
+[database]
+database_host = localhost
+database_name = airflow_reddit
+database_port = 5432
+database_username = postgres
+database_password = postgres
+
+[file_paths]
+input_path = /opt/airflow/data/input
+output_path = /opt/airflow/data/output
+
+[api_keys]
+reddit_secret_key = [Reddit Script Secret Key]
+reddit_client_id = [Reddit Script Client ID]
+
+[aws]
+aws_access_key_id = [AWS Access Key ID]
+aws_secret_access_key= [AWS Secret Key]
+aws_session_token= [AWS Session Token]
+aws_region = [AWS Region]
+aws_bucket_name = [AWS Bucket name]
+
+[etl_settings]
+batch_size = 100
+error_handling = abort
+log_level = info
