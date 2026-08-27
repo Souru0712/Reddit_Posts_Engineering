@@ -1,0 +1,550 @@
+{
+  "meta": {
+    "generated": "2026-08-27 23:12 UTC",
+    "sort": "top",
+    "time_filter": "all",
+    "quote": true,
+    "searches": 10,
+    "raw_hits": 35,
+    "grid": {
+      "AutoModerator|is there a bot that": 4,
+      "AutoModerator|is there an app that": 0,
+      "AutoModerator|is there a tool": 1,
+      "AutoModerator|automod can't": 19,
+      "AutoModerator|automoderator can't": 5,
+      "AutoModerator|any way to automatically": 5,
+      "AutoModerator|wish there was": 1,
+      "AutoModerator|how do you all handle": 0,
+      "AutoModerator|we do this manually": 0,
+      "AutoModerator|spending hours": 0
+    },
+    "errors": []
+  },
+  "posts": [
+    {
+      "id": "ppia5i",
+      "subreddit": "AutoModerator",
+      "title": "Feature request: Popular/all triggerin",
+      "author": "hacksoncode",
+      "score": 10,
+      "num_comments": 13,
+      "created_utc": "2021-09-16",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/ppia5i/feature_request_popularall_triggerin/",
+      "selftext": "Yes, I know automod can't do this today, but it's a really serious limitation for subs that have strict rules and heavy moderation load, like /r/changemyview. \n\nWhenever one of our posts reaches popular/all, a wave of people that don't understand the rules arrives, and some of these rules are super non-obvious and generate *vast* swarms of violations, like you must disagree with OP in top-level comments. \n\nJust simply preemptively stickying a rules reminder could help cut down out getting overwhelmed a lot. \n\nPlease, please, please, could we get this feature added, if any admins are reading?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "gn8tby",
+      "subreddit": "AutoModerator",
+      "title": "How can I make it so automod answers to a particular word?",
+      "author": "Zehennagel",
+      "score": 5,
+      "num_comments": 13,
+      "created_utc": "2020-05-20",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/gn8tby/how_can_i_make_it_so_automod_answers_to_a/",
+      "selftext": "I'd like automod to anwer a particular word with a message, but I can't create it for the life of me. Id like it to answer to \"nice\" but with a different message than the well known \"nice bot\" does.\n\nhere's what I wrote yet :\n\n\\---\n\ntype: comment\n\nbody (full-text): \"nice\"\n\ncomment: |\n\nmy text\n\n\\---\n\n&#x200B;\n\nare thre forbidden words that automod can't answer?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "yhbmqw",
+      "subreddit": "AutoModerator",
+      "title": "How to make automoderator ban users who are minors?",
+      "author": "HopeUCanHelpMe",
+      "score": 1,
+      "num_comments": 10,
+      "created_utc": "2022-10-30",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/yhbmqw/how_to_make_automoderator_ban_users_who_are_minors/",
+      "selftext": "I have no idea how to do this, so I'll say what I want to do in case someone can help me.\n\nWhat I want to do is that when a minor says their age on the title of the post (M15 or f16 for example) automoderator deletes their post and bans the user.\n\n Is this possible?\n\nEdit: Well I just found out that automod can't ban, but could he let me know when someone puts these on their post title so I can ban them manually?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "fgdl4n",
+      "subreddit": "AutoModerator",
+      "title": "Automod doesn't remove posts with trigger word",
+      "author": "SiMonsterrrr",
+      "score": 0,
+      "num_comments": 10,
+      "created_utc": "2020-03-10",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/fgdl4n/automod_doesnt_remove_posts_with_trigger_word/",
+      "selftext": "Hi there\n\nI'm trying to write a new rule for Automod. For all the posts that have the word \"suicide\" in the title, Automod should:\n\n1. Remove the post\n2. Add a comment\n3. Send a message to modmail\n\nHowever: None of it happens when I test it. I also tried to reduce it more and more, but Automod never took action\n\nCould this possibly be because Automod can't remove a post by a mod that outranks it?\n\n&#x200B;\n\n`type: submission`\n\n`title: [\"suicide\"]`\n\n`action: remove`\n\n`comment: |`\n\n`Hi {{author}} and thank you for posting here!`\n\n`However, your submission has been automatically removed for violating Rule 9: Self Harm/Suicidal Ideations`\n\n`This sub and it's moderators are not equipped to handle mental health crises and suicidal ideations. But we care very much about our subscribers. Please, if you are having such thoughts or are    in a crisis, check out our resource post: [For those of us in the darkest of places](`[`https://www.reddit.com/r/toastme/comments/8pstox/for_those_of_us_that_are_in_the_darkest_of_places`](https://www.reddit.com/r/toastme/comments/8pstox/for_those_of_us_that_are_in_the_darkest_of_places)`)`\n\n`**You matter, and we want you to be here with us!**`\n\n`modmail: |`\n\n`The above post by /u/{{author}}, with title \"{{title}}\" was removed because OP seems to have suicidal / self harming tendencies.` \n\n`Please investigate and make sure that this action was correct.`",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "p3a2rw",
+      "subreddit": "AutoModerator",
+      "title": "Is there a way for my bot to tell automod to filter a post?",
+      "author": "Mattyi",
+      "score": 3,
+      "num_comments": 8,
+      "created_utc": "2021-08-12",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/p3a2rw/is_there_a_way_for_my_bot_to_tell_automod_to/",
+      "selftext": "I've got a t-shirt bootlegger in my subreddit who posts t-shirt images (using imgur and i.reddit) and hawks his product, then deletes his account (and the images, if it's imgur).   No amount of hitting the spam button seems to be getting rid of this person. \n\nMods are building a collection of these images (<10 of them total probably), and I'm 99% through building a bot that looks at all new posts and uses image hashes to compare the new post's image against the collection.  Looks like it's going to work really well for identifying this user.\n\nTrouble is, I thought I could use the bot to add  a custom report reason and then Automod could see the content of the report and filter it.  Turns out that Automod can't do that though!  Automod can *give* report reasons but it can't *read* them and then act.\n\nDoes anybody know of any way for a bot to either trip Automod's filter action, or to filter a submission directly? I would prefer a filter action rather than removal, so that a mod can inspect the bot's actions more easily.  \n\nThanks for any advice y'all might have for me.",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "1m35fbq",
+      "subreddit": "AutoModerator",
+      "title": "How does TipOfMyTongue remove posts if the OP doesn't engage?",
+      "author": "RodneyOgg",
+      "score": 5,
+      "num_comments": 7,
+      "created_utc": "2025-07-18",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/1m35fbq/how_does_tipofmytongue_remove_posts_if_the_op/",
+      "selftext": "Maybe it's not automod and it's being done manually, so this could be a wild goose chase. And if it is, I'm sorry!\n\nBut if you post there, and there are too many comments without you replying to them, the post gets removed and the comment says something like \"your post has been removed due to too many comments without your interaction\" - or something along those lines. \n\nI'm assuming the parent comment level number is set in the rules, but maybe not. In my searches I found that automod can't tell time, so I don't think there's a duration involved? \n\nThanks in advance!",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "agpcea",
+      "subreddit": "AutoModerator",
+      "title": "Is there any way to have automod remove posts that do not have a flair after a certain amount of time?",
+      "author": "PvEingDoneRight",
+      "score": 3,
+      "num_comments": 7,
+      "created_utc": "2019-01-16",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/agpcea/is_there_any_way_to_have_automod_remove_posts/",
+      "selftext": "I've tried to look up if it is possible but haven't gotten a solid answer yet.\n\nWould it be possible to have automod say delete a post after 2 minutes if it has not been assigned a flair yet?\n\nIf automod can't do it is there some other way to make that happen?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "7ffj0p",
+      "subreddit": "AutoModerator",
+      "title": "When checking a comment, which properties of a parent submission can be checked against?",
+      "author": "i-call-it-vera",
+      "score": 4,
+      "num_comments": 6,
+      "created_utc": "2017-11-25",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/7ffj0p/when_checking_a_comment_which_properties_of_a/",
+      "selftext": "On the page [things Automoderator can't do](https://www.reddit.com/r/automoderator/wiki/no_can_do), it says that Automoderator can't\n\n>Make decisions based on any piece of content other than what it is currently examining (parent comment, for example). Exceptions: **Comments may be evaluated by the properties of the submission it is on.**\n\nWhat properties are those?\n\nI thought it might be the submission's \"media properties\", but after testing, it won't allow you to do that for comments. I'm looking for properties of the parent submission that can be checked against.",
+      "over_18": false,
+      "matched_queries": [
+        "automoderator can't"
+      ]
+    },
+    {
+      "id": "jmmrm9",
+      "subreddit": "AutoModerator",
+      "title": "Automatic comment under a certain flair",
+      "author": "lol_me12",
+      "score": 8,
+      "num_comments": 5,
+      "created_utc": "2020-11-02",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/jmmrm9/automatic_comment_under_a_certain_flair/",
+      "selftext": "Is there a bot that automatically comments under a certain flair?",
+      "over_18": false,
+      "matched_queries": [
+        "is there a bot that"
+      ]
+    },
+    {
+      "id": "7ne9gw",
+      "subreddit": "AutoModerator",
+      "title": "Look I'm an idiot",
+      "author": "QuantumSolace45",
+      "score": 7,
+      "num_comments": 5,
+      "created_utc": "2018-01-01",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/7ne9gw/look_im_an_idiot/",
+      "selftext": "I jokingly blocked automoderator. Can't unblock it. Help.",
+      "over_18": false,
+      "matched_queries": [
+        "automoderator can't"
+      ]
+    },
+    {
+      "id": "13cxmoc",
+      "subreddit": "AutoModerator",
+      "title": "Temporary block comment spammer from posting",
+      "author": "BDSM-ab-throwaway52",
+      "score": 6,
+      "num_comments": 5,
+      "created_utc": "2023-05-09",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/13cxmoc/temporary_block_comment_spammer_from_posting/",
+      "selftext": "It's always the same pattern: Spambot finds top 5 threads, dumps a comment from its round-robin of cheezy line (\"plow a girl tonight!\") in each thread, and when I check the spam folder from the last month, they never re-use the same username, so it's not worth to \"filter\" and manually ban, script simply \"spam\".\n\nI've skim the Automod documentation and can't find the desired action. Considering Automod can't ban users and sends notifications BEFORE Automod cleans up the mess... When the first spam comment arrives: \"action: spam\" + Silent \"Mute\" because we all know what's gonna happen next. Reddit should reject anything from that username for the next 5, 30, 60 minutes.\n\nOkay, I'm aware the next spambot owner will up his game and send 5 different spambots. But can we have tools to at least manage those simple spambots?\n\nMaybe it's intended for r/ideasfortheadmins ?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "azc3mj",
+      "subreddit": "AutoModerator",
+      "title": "Automod Reports/Logs",
+      "author": "Wompingsnatterpuss",
+      "score": 5,
+      "num_comments": 5,
+      "created_utc": "2019-03-10",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/azc3mj/automod_reportslogs/",
+      "selftext": "I'm trying to build a policy monitoring application that sends every Automod message regarding bans/removals to my API via a POST request from a certain subreddit. \n\nI'm not familiar with the limitations or capabilities of Automod, but I'm curious nonetheless. Is there a bot that does this already or is the capability not there for Automod? Would I be better off getting my information via a different method such as a user inbox?",
+      "over_18": false,
+      "matched_queries": [
+        "is there a bot that"
+      ]
+    },
+    {
+      "id": "7299pw",
+      "subreddit": "AutoModerator",
+      "title": "Sandbox or testing tool for automoderator?",
+      "author": "catskul",
+      "score": 2,
+      "num_comments": 5,
+      "created_utc": "2017-09-25",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/7299pw/sandbox_or_testing_tool_for_automoderator/",
+      "selftext": "Of course people can make test posts to test the automoderator, but it has obvious downsides.\n\nI searched for this and was surprised this hadn't been asked yet:\n\n*Is there a tool or a sandbox to test specific automoderator rules?*\n\n(Something akin to https://regexr.com/)\n\nIf not, is this something that would be hard to build?\n\nIMO this would dramatically improve the use and configuration of automoderator, and probably eliminate half the need to ask questions here in /r/automoderator",
+      "over_18": false,
+      "matched_queries": [
+        "is there a tool"
+      ]
+    },
+    {
+      "id": "80jkym",
+      "subreddit": "AutoModerator",
+      "title": "Some Daily Post Questions.",
+      "author": "theprofitgod",
+      "score": 1,
+      "num_comments": 5,
+      "created_utc": "2018-02-27",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/80jkym/some_daily_post_questions/",
+      "selftext": "Hi, \n\nWe need the Automod to post daily posts for us which can be edited since we need to be able to add relevant data daily.  How can we do this?  If automod can't do this, are there alternatives?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "n827zx",
+      "subreddit": "AutoModerator",
+      "title": "Any way to automatically link to the currently stickied post?",
+      "author": "TestPostPleaseIgnore",
+      "score": 3,
+      "num_comments": 4,
+      "created_utc": "2021-05-09",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/n827zx/any_way_to_automatically_link_to_the_currently/",
+      "selftext": "So say I have a weekly scheduled :\n\n\"Weekly Question Mega thread, post questions here\"\n\n---\n\nThen someone posts \"very common question! help???\"\n\nCan I have automod comment:\n\n>Your post has been removed, here's a link to the stickied \"weekly question mega thread\" where you can post your question\n\nis there any kind of way to include an smart <<Link_to_sticky_1>> in the comment? so that it links to the current mega thread?",
+      "over_18": false,
+      "matched_queries": [
+        "any way to automatically"
+      ]
+    },
+    {
+      "id": "ovshbb",
+      "subreddit": "AutoModerator",
+      "title": "Is there any way to automatically downvote any post caught by the spam filter?",
+      "author": "Ruizhen08",
+      "score": 2,
+      "num_comments": 4,
+      "created_utc": "2021-08-01",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/ovshbb/is_there_any_way_to_automatically_downvote_any/",
+      "selftext": "I'm kinda tired of spam bots gaining more and more karma (and therefore some sort of legitimacy) because they're spamming the subreddit with 1000 \"1 upvote\" posts per day that are automatically deleted by the filter.\n\nI've been doing this manually for a while, but it's getting difficult to manage.\n\nCan it be done?\n\nThank you in advance and wish you a good day!",
+      "over_18": false,
+      "matched_queries": [
+        "any way to automatically"
+      ]
+    },
+    {
+      "id": "va3xa9",
+      "subreddit": "AutoModerator",
+      "title": "Can AM ban a flair for a day?",
+      "author": "Potato-In-A-Jacket",
+      "score": 0,
+      "num_comments": 4,
+      "created_utc": "2022-06-11",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/va3xa9/can_am_ban_a_flair_for_a_day/",
+      "selftext": "I saw in a previous question that it may be possible for automod to ban a flair for a day, but the responder didn't flesh out their comment (they mentioned you would have to \"comment out the other days\" or something akin to that), and I'm not sure what they meant by \"the other days\". Basically, I am trying to setup one day of the week where memes and videos are not allowed in my sub; I know automod can't prevent them for a single day, so I was wondering if it could at least stop specific flairs from being used for a day.",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "tg0a57",
+      "subreddit": "AutoModerator",
+      "title": "Is there a parameter for automod to remove a post if the author deletes it? Perhaps within a certain timeframe?",
+      "author": "freakierchicken",
+      "score": 5,
+      "num_comments": 3,
+      "created_utc": "2022-03-17",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/tg0a57/is_there_a_parameter_for_automod_to_remove_a_post/",
+      "selftext": "So I've searched this sub and came across a few posts that say automod can't do anything after the post has made it through, but on r/explainlikeimfive I've seen it hit posts after the text body is edited, sometimes thirty minutes later. Maybe that has something to do with it running as a \"new\" post? \n\nAnyway, there's a troll behavior where new accounts are used to post and then delete their account or do something to make the user come across as /u/[deleted].\n\nMy idea, besides a filter which has been implemented, is to have automod strike a post when the user deletes it within a certain timeframe. I think having it indefinite would strike posts that otherwise work, but maybe the OP deleted their account for whatever reason after it gets popular. \n\nIf anyone has any ideas or knows it isn't possible, I'm all ears!",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "g8mopk",
+      "subreddit": "AutoModerator",
+      "title": "Removing posts based on specific report rule set on the subreddit, rather than just number of reports?",
+      "author": "cloudxnine",
+      "score": 5,
+      "num_comments": 3,
+      "created_utc": "2020-04-26",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/g8mopk/removing_posts_based_on_specific_report_rule_set/",
+      "selftext": "Hello people, hope your having a great day!\n\nI'm aware that we can have something removed via report counts alone.\n\n>reports: 3  \n>  \n>action: remove\n\nWhich works great.\n\nlet's say I have 2 rules set on a subreddit, can I specifically only remove a post that was reported x amount of times because of rule 1 (for example: let's say rule 1 is no nudity, rule 2 is no offtopic stuff. If the post receives x amount of reports for rule 1 - nudity then it will get removed, not just because of reports total but because of reports total on rule 1 that contained nudity)\n\nSince those rules are set in place permanently, my question is if a post gets 5+ reports for rule 1 specifically which is no nudity then it gets autoremoved.\n\nAny insight would be appreciated!\n\n&#x200B;\n\nEdit: \n\nI understand automoderator can't read user reports which is fine, I was wondering if I could set those 2 rules so when people report they don't have the option to type a report reason rather they only have 2 options to report the post for and if the post is reported for A multiple times instead of all reports total then it removes it for the A reason only, in this case, nudity",
+      "over_18": false,
+      "matched_queries": [
+        "automoderator can't"
+      ]
+    },
+    {
+      "id": "l4wx69",
+      "subreddit": "AutoModerator",
+      "title": "Add flairs automatically with removal reasons",
+      "author": "fredlikesporn",
+      "score": 3,
+      "num_comments": 3,
+      "created_utc": "2021-01-25",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/l4wx69/add_flairs_automatically_with_removal_reasons/",
+      "selftext": "Not sure this is the right place for this and I'm not even sure this is an automod feature, so I'll appreciate it if someone can point me in the right direction if I'm wrong.   \n\nIs there any way to automatically link flair a post when removing posts and selecting a removal reason?",
+      "over_18": false,
+      "matched_queries": [
+        "any way to automatically"
+      ]
+    },
+    {
+      "id": "rcd1mk",
+      "subreddit": "AutoModerator",
+      "title": "Leave a comment if not already left a comment?",
+      "author": "rebcart",
+      "score": 2,
+      "num_comments": 3,
+      "created_utc": "2021-12-09",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/rcd1mk/leave_a_comment_if_not_already_left_a_comment/",
+      "selftext": "Our Automod has multiple regex rules which, if triggered, will leave a comment in the thread suggesting a link to a specific wiki page that may be relevant. \n\nWe would like to make it also leave a comment on *all other threads* with a link to the wiki index, so that people that automod can't parse for specific topics still get a notification to take a look at the wiki in general.\n\nQuestions:\n\n* is there a way for Automod to only respond if it hasn't left a comment yet? I see we can negate the regex triggers, but it would be cumbersome to put in all the triggers from multiple rules into this and then remember to update them every time *any* of the other wiki comment rules are updated. Would be nicer for the trigger to just be \"No automod comments in this thread yet\" or \"no other rules triggered yet\"    \n* If automod takes a remove/spam/filter action from a previous rule, it stops there and doesn't check the wiki comment rules at all. Is there a way to make the wiki comment rules trigger on all these threads as well so that they're not missed when they are manually approved? Other than putting the wiki message into each and every removal-action rule just in case?  \n* If we have to include the wiki comment inside the removal rules as well - we have some removal rules that check the one set of trigger words against both submissions and comments. Is there a way to make the wiki comment only reply to submissions and not comments in these rules, without splitting the rule into two?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "12k5lye",
+      "subreddit": "AutoModerator",
+      "title": "Is it possible to make an automod script that does math?",
+      "author": "PKHacker1337",
+      "score": 1,
+      "num_comments": 3,
+      "created_utc": "2023-04-13",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/12k5lye/is_it_possible_to_make_an_automod_script_that/",
+      "selftext": "Hello! I hope you all are doing well today :-). For a subreddit about a game, I'm working on a command for something, I want to make a calculator using automod and a command. The idea is that I want a user to be able to enter !spellproof and 5 numbers, so for a test example, !spellproof 255 250 260 260 250, which I would like it to output 10.24% (I want it to show 2 digits after the decimal point) after it runs the formula  (2/250)\\*(2\\*Strength + 2\\*Agility + Power) where Strength is the first number, Agility is the 3rd number, and Power is the 5th number (in this instance, the 2nd and 4th numbers aren't needed for this purpose, but I do want to expand the command later). I'm not sure if automod supports doing math, or if there's a better way to do this. I tried asking for help and ended up trying out ChatGPT and BingAI for help and everything I found either made automod print the text literally instead of doing the math:\n\n    type: comment\n    body (regex): \"(?i)!spellproof\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\"\n    comment: |\n      {% set strength = body | regex_find('(?i)!spellproof\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})')[1] | int %}\n      {% set agility = body | regex_find('(?i)!spellproof\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})')[3] | int %}\n      {% set power = body | regex_find('(?i)!spellproof\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})')[5] | int %}\n      {% set result = ((2/250)*(2*strength + 2*agility + power)) | round(2) %}\n      With your current stats, using spell-proof would reduce spell damage by {{ result }}%.\n\nor just made nothing at all happen, like with BingAI's suggestion of:\n\n    type: comment\n    body (regex): ['(?i)!spellproof\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})\\\\s+(\\\\d{1,3})']\n    comment: |     The result of the calculation is: {{ '%.2f' | format((2/250)*(2*match-1 + 2*match-3 + match-5)) }}\n\nI was wondering if it could be possible to implement this as an automoderator command, or if this is something automod can't actually do. Thanks for your time, and I hope you all have a nice day :-).\n\nEdit: To be clear, I basically want an automod script that's the equivalent of this Python3 script that gets invoked when someone starts a comment with !spellproof  \n\n\n    numbers = input(\"Enter 5 numbers separated by spaces: \")\n    numbers = list(map(int, numbers.split()))\n    strength = numbers[0]\n    agility = numbers[2]\n    power = numbers[4]\n    result = round((2/250)*(2*strength + 2*agility + power), 2)\n    print(f\"With your current stats, using spell-proof would reduce spell damage by {result}%\")\n    \n\n&#x200B;",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "v0fv8i",
+      "subreddit": "AutoModerator",
+      "title": "Get Automoderator to create a new post any time a user is banned from a subreddit",
+      "author": "ISuckAtChoosingNicks",
+      "score": 0,
+      "num_comments": 3,
+      "created_utc": "2022-05-29",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/v0fv8i/get_automoderator_to_create_a_new_post_any_time_a/",
+      "selftext": "Hi all, as per title I'm trying to get Automod to create a new post on a private subreddit every time a user gets banned from a specific, public subreddit. I know Automod can't ban users, so the bans will be handed by us mods as per usual, but is it possible to get Automod to act upon each new ban with a new post?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "96rue1",
+      "subreddit": "AutoModerator",
+      "title": "Automoderator can't assign his own user flair?",
+      "author": "OsrsNeedsF2P",
+      "score": 0,
+      "num_comments": 3,
+      "created_utc": "2018-08-12",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/96rue1/automoderator_cant_assign_his_own_user_flair/",
+      "selftext": "I noticed the Automod wasn't changing his flair and css class as per my rules. So I tested this really quick:\n\n\n    author:\n        name: [\"AutoModerator\"]\n        set_flair: [\"UPDATEEEE\", \"UPDATEEEE\"]\n        overwrite_flair: true\n\nAnd it seems he won't update it (after commenting somewhere, ofc) even if explicitly written like that. Is there any way to make him update his flair? I tested that exact snippit but with my username `OsrsNeedsF2P` instead, and it worked as expected.",
+      "over_18": false,
+      "matched_queries": [
+        "automoderator can't"
+      ]
+    },
+    {
+      "id": "mkquff",
+      "subreddit": "AutoModerator",
+      "title": "Can I setup or remove posts if a user selects a specifc flair option?",
+      "author": "Meflakcannon",
+      "score": 5,
+      "num_comments": 2,
+      "created_utc": "2021-04-05",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/mkquff/can_i_setup_or_remove_posts_if_a_user_selects_a/",
+      "selftext": "One of the subs I moderate has been getting hit with image spam from normally accepted domains, these posts are from compromised accounts with thousands of link/comment karma. These images are nsfw (the sub is nsfw by nature), but the bottom half of each image is links to spam urls. These nsfw images are all unique. The post titles are also rather unique.\n\n&#x200B;\n\nSince the automoderator can't analyze the content of a picture (oh god the compute power to do that..) I thought let me first bump up the minimum post link/comment thresholds and force each post to have flair. It turns out the spam is smart enough to select flair if it's required, but they seem to only select the first flare provided.\n\n&#x200B;\n\nReading through the automod documentation It doesn't seem possible, any suggestions? To either create an automod rule that would do what I ask or some rules that may help mitigate this spam?  \n\n\nEdit. A few new spam posts have come in. It appears they select flair at random. So I just need some sort of rules to prevent compromised users from posting. I've lowered the removal threshold to 2 reports. :/",
+      "over_18": false,
+      "matched_queries": [
+        "automoderator can't"
+      ]
+    },
+    {
+      "id": "8j0ay3",
+      "subreddit": "AutoModerator",
+      "title": "Any way to automatically make all .GIF or any Video submissions go automatically to spam filter so I can hand review them before they go live?",
+      "author": "spicedpumpkins",
+      "score": 3,
+      "num_comments": 2,
+      "created_utc": "2018-05-13",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/8j0ay3/any_way_to_automatically_make_all_gif_or_any/",
+      "selftext": "sub is /r/MostBeautiful\n\nI'd like all .GIF submissions (or any video variations I think the only other one is .GIFv?) to auto route to the spam filter so I can review them before they go live and ensure they are appropriate for the sub.",
+      "over_18": false,
+      "matched_queries": [
+        "any way to automatically"
+      ]
+    },
+    {
+      "id": "k6p1lc",
+      "subreddit": "AutoModerator",
+      "title": "First time using automod, can't seem to remove posts with keyword triggers!",
+      "author": "kolt54321",
+      "score": 2,
+      "num_comments": 2,
+      "created_utc": "2020-12-04",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/k6p1lc/first_time_using_automod_cant_seem_to_remove/",
+      "selftext": "My sub has been having some spam posts all regarding \"lustrah\" in /r/ActualFrugalFashion. I want to remove all posts that have lustrah in the title. My current rules are below. However, after a few test runs, I don't see anything being removed. How could I fix the code to remove the spam?\n\n\n---\n    title+body (includes): [\"lustrah\"]\n    action: remove\n    action_reason: \"Spam [{{match}}]\"\n    comment: |\n        We do not tolerate spam.\n    modmail: |\n        The above post by /u/{{author}}, with title \"{{title}}\" was removed because it contained spam.\n---",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "xkppfb",
+      "subreddit": "AutoModerator",
+      "title": "Newbie needs help with a simple rule",
+      "author": "ge0mart713",
+      "score": 2,
+      "num_comments": 2,
+      "created_utc": "2022-09-22",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/xkppfb/newbie_needs_help_with_a_simple_rule/",
+      "selftext": "Hi, I'm a new moderator /  sub creator for an NSFW sub on my alt account, and I am constantly being asked why the clips don't have sound from users that are on the official reddit mobile app. I want to create a rule that automatically informs members that they need to switch to the mobile website or desktop version if they want to hear the clips.  Anything I might have known about coding I forgot long ago, but with the help resources I came up with this:\n\n\\# No sound in mobile app \n\ncomment: \\[no sound, cant hear, can't hear, no audio, have sound, have audio, is there sound, is there audio, where's the sound, wheres the sound, where's the audio, wheres the audio, have the sound, have the audio, sound on the, audio on the, sound in the, audio in the, wish there was sound, need the sound, wish there was audio, need the audio, there sound, there audio\\] \n\ncomment: |       \n\nIt sounds like you may be having some issue with audio. \n\nAudio will not play if you are using the official reddit mobile app.\n\nPlease use the mobile website or desktop version.\n\nIf you are not using the mobile app or this doesn't apply, please disregard. \n\n&#x200B;\n\n&#x200B;\n\nThis is the only automod action i have set up currently, so i dont have the 3 dashes on top or below. Can someone tell me what I am doing wrong?",
+      "over_18": false,
+      "matched_queries": [
+        "wish there was"
+      ]
+    },
+    {
+      "id": "1bhwm07",
+      "subreddit": "AutoModerator",
+      "title": "Website that makes typing emojis easier",
+      "author": "kezotl",
+      "score": 0,
+      "num_comments": 2,
+      "created_utc": "2024-03-18",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/1bhwm07/website_that_makes_typing_emojis_easier/",
+      "selftext": "I found [this site](https://magictool.ai/tool/html-decoder-encoder/) that converts all unicode characters (which automod cant read) in a text to emojis. useful for copypastas and stuff lol",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "c2e249",
+      "subreddit": "AutoModerator",
+      "title": "I've made automod count words, tell users how many words they've written, and say how many more they need to reach the minimum for your subreddit.",
+      "author": "Youneverknowwwwyou",
+      "score": 9,
+      "num_comments": 1,
+      "created_utc": "2019-06-19",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/c2e249/ive_made_automod_count_words_tell_users_how_many/",
+      "selftext": "Well, the title says most of it. I'm unsure of how this will benefit other users since they may not have such a niche subreddit as my own, but I thought I'd mention this here.\n\nI've made a rule to detect words in submissions on your subreddit. Basically, it uses a regex to find the amount of words. Easy, right? Well, the rules I've written also report to the user how many words they've written, and how many words they need to reach the minimum set for your subreddit.\n\nAs you can imagine, since automod can't be 'coded' in a strict sense with loops, or variables and other whatnot (technically) since it's a YAML language, I've written a python script.\n\nWhat is this script, you might ask? Well, naturally it's to generate each and every individual rule for automod...\n\nYeah, I know this is likely highly inefficient. But it apparently works. I've got a 350 word minimum count for my own subreddit, and needless to say, I've generated all 350 rules for automod to catch each word, remove the post, report how many words they have, and the words they have remaining.\n\nIt's nothing huge, but if anyone needs this script to generate rules of their own, they can feel free to message me. ~~I'm not going into particulars with the regex that I've made because I'd rather not users attempt to use the information from the regex in an attempt to bypass the word count in other faulty ways.~~ If anyone sends me a message from here, I'll be happy to privately discuss the script in question along with the mechanics of how it works. Additionally, you are free to use it for your own subreddit. I think that's all for now. Take care!\n\nEdit: For clarification, I have NOT simply gone and detected an average amount of characters at a set point. I'm actually detecting proper words.\n\n* SuperDuperWordThisIsAWord\n\nUsing character detection, the above would be detected as more than one word. My own detection using regex would instead register this as one word. I believe that character detection usually works with an average of \\~5 or so characters? That's not what this is doing.\n\nEdit 2: This generator should ideally be used only to prevent people from posting *under* a specific word count. It would become... highly inefficient, very quickly, if, say, you were to try and set no upper bound on the amount of rules you make. It does not message users if they have posted an appropriate amount of words for your sub.\n\nEdit 3: I feel dumb. Maybe I'm paranoid. It's not like folks can bypass a word filter. I've already set other rules to catch common tricks to bypass word count filters. Disregard the part about me privatizing this. Here's the details:\n\n    MINIMUM = 350\n    \n    for i in range(MINIMUM - 1):\n    \tprint('#Catcher for %s word(s).' % (i + 1))\n    \tprint('    type: submission')\n    \tprint('    body (regex): [\\'^\\\\s*\\\\S+(?:\\\\s+\\\\S+){%s}\\\\s*$\\']' % i)\n    \tprint('    moderators_exempt: False')\n    \tprint('    action: remove')\n    \tprint('    action_reason: Word count minimum not met. Instead found %s words.' % (i + 1))\n    \tprint('    message: | ')\n    \tprint('        Hi there! Your recent [post]({{permalink}}) in r/{{subreddit}} had %s words. You need %s more words to hit the 350 word minimum mark. Unfortunately, your submission has been removed because it has not met the %s word minimum for r/{{subreddit}}. Please adjust your post accordingly. This rule may be adjusted in the future. Your [post]({{permalink}}) may be reviewed by moderators and approved if the content is suitable.' % ((i + 1), MINIMUM, (MINIMUM - (i+1))))\n    \tprint('---')\n\nThat's the code for the generator. You can feel free to replace the 'message' area with your own text. There are *exactly* 8 spaces before the 'hi' in the original code. this is *on purpose,* make sure there are precisely 8 if you intend to edit there as well.",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "163xfyf",
+      "subreddit": "AutoModerator",
+      "title": "rule to move to modqueue and after reply with a comment.",
+      "author": "belibelibelib",
+      "score": 2,
+      "num_comments": 1,
+      "created_utc": "2023-08-28",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/163xfyf/rule_to_move_to_modqueue_and_after_reply_with_a/",
+      "selftext": "Hello,\n\nI'd like to know if there is a way to move a post on modqueue, then the moderator approve it and after this automod reply to the post with a comment. As I know this operation can't be executed because after the first execution automod can't do anything else.  Is that true ?\n\n&#x200B;",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "giolti",
+      "subreddit": "AutoModerator",
+      "title": "possible to check if a post has been crossposted",
+      "author": "Doomguy46_",
+      "score": 1,
+      "num_comments": 1,
+      "created_utc": "2020-05-13",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/giolti/possible_to_check_if_a_post_has_been_crossposted/",
+      "selftext": "is there a bot that allows you to check if a post has been crossposted, then check where, by whom etc.?",
+      "over_18": false,
+      "matched_queries": [
+        "is there a bot that"
+      ]
+    },
+    {
+      "id": "455ix5",
+      "subreddit": "AutoModerator",
+      "title": "I would like to set up a regularly repeated scheduled post which cycles through a list of URLs, either within the text of a self post or as a direct submission. This is possibly a feature request.",
+      "author": "Nemester",
+      "score": 1,
+      "num_comments": 1,
+      "created_utc": "2016-02-10",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/455ix5/i_would_like_to_set_up_a_regularly_repeated/",
+      "selftext": "Specifically, I want automod (or something else if automod can't do it) to submit an entry from [this blog](http://unqualified-reservations.blogspot.com/) on a regular basis, maybe daily, to the /r/darkenlightenment subreddit. It doesn't matter much if it is within the text of a self post or a direct submission. I want it to start with the first post ever made for the first submission, then the next day submit the second post, then the third day post the third post and so on until it gets to the very last post at which point it will go back to the beginning and do it all over again. There are hundreds of posts, so a complete cycle could take the better part of the year. I can of course make the list of URLs myself for automod to refer to.  Is something like this possible?",
+      "over_18": false,
+      "matched_queries": [
+        "automod can't"
+      ]
+    },
+    {
+      "id": "4hwn21",
+      "subreddit": "AutoModerator",
+      "title": "Any way to automatically make him post a YouTube link and format the title correctly every week?",
+      "author": "TheGiantGrayDildo69",
+      "score": 1,
+      "num_comments": 1,
+      "created_utc": "2016-05-04",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/4hwn21/any_way_to_automatically_make_him_post_a_youtube/",
+      "selftext": "Basically my friends and I are starting a new Podcast with our own subreddit and I was wondering if there's any way to make AM automatically post a link to the newest episode and format the title correctly every week?\n\nAlso if he could do the same with a self post intended to allow people to submit topics for the next episode.",
+      "over_18": false,
+      "matched_queries": [
+        "any way to automatically"
+      ]
+    },
+    {
+      "id": "xerni6",
+      "subreddit": "AutoModerator",
+      "title": "Is there a way to set post flair and filter at the same time, for multiple flairs?",
+      "author": "jfong86",
+      "score": 3,
+      "num_comments": 0,
+      "created_utc": "2022-09-15",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/xerni6/is_there_a_way_to_set_post_flair_and_filter_at/",
+      "selftext": "##Background\n\nI have 10 post flairs, and I have AM code that automatically sets each of the 10 flairs based on keywords in the post title.\n\n    # Post Flair 1\n    title: \"keyword1\"\n    set_flair: \n        template_id: 123456-abcde-etcetc\n    ---\n    # Post Flair 2\n    title: \"keyword2\"\n    set_flair: \n        template_id: xyzabc-54321-etcetc\n    ---\n    Repeated 8 more times\n\nI also have filters:\n\n    title+body: \"bad word\"\n    action: filter\n    action_reason: user said a bad word\n\n##Problem\n\nBut AM processes all the removals and filters **first** before moving onto the rest of the AM code. If a post gets filtered, that's it. **No flair is ever set.** For all filtered posts that I manually approve, I have to also manually set the flair which is annoying. \n\nOne solution is to combine the two rules above, and filter + set flair at the same time:\n\n    title+body: \"bad word\"\n    title#2: \"keyword1\"\n    action: filter\n    set_flair: \n        template_id: 123456-abcde-etcetc # Post Flair 1 from above\n    action_reason: user said a bad word\n\nThis works, but only for 1 flair at a time. And as I said above, I have 10 post flairs. This means I have to duplicate this filter rule 10 times, once for every flair. And if I have 20 different filter rules, then that's 20 x 10 = 200 Automod rules. **Surely there must be a better way? Or is there a bot that can detect unflaired posts, and set the correct flair based on some rules?**\n\nNote: My question is almost the same as [this post](https://www.reddit.com/r/AutoModerator/comments/6t9jit/making_am_flair_before_filtering_a_post/). Someone offered a possible solution for old reddit, but it but it doesn't work with the new reddit redesign post flairs.",
+      "over_18": false,
+      "matched_queries": [
+        "is there a bot that"
+      ]
+    }
+  ]
+}
