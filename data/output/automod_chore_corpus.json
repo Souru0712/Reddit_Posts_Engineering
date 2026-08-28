@@ -1,0 +1,296 @@
+{
+  "meta": {
+    "generated": "2026-08-28 21:16 UTC",
+    "sort": "top",
+    "time_filter": "all",
+    "quote": true,
+    "queryset": "chore",
+    "queries": [
+      "automate modmail",
+      "modmail auto response",
+      "remove unflaired posts",
+      "require post flair",
+      "modqueue backlog",
+      "clear the modqueue",
+      "verify new users",
+      "detect ban evasion",
+      "pin a comment automatically",
+      "schedule a post"
+    ],
+    "subreddits": [
+      "AutoModerator"
+    ],
+    "searches": 10,
+    "raw_hits": 17,
+    "grid": {
+      "AutoModerator|automate modmail": 1,
+      "AutoModerator|modmail auto response": 0,
+      "AutoModerator|remove unflaired posts": 2,
+      "AutoModerator|require post flair": 3,
+      "AutoModerator|modqueue backlog": 1,
+      "AutoModerator|clear the modqueue": 0,
+      "AutoModerator|verify new users": 0,
+      "AutoModerator|detect ban evasion": 0,
+      "AutoModerator|pin a comment automatically": 0,
+      "AutoModerator|schedule a post": 10
+    },
+    "errors": []
+  },
+  "posts": [
+    {
+      "id": "djpoq5",
+      "subreddit": "AutoModerator",
+      "title": "Subreddit update and how you can help out!",
+      "author": "dequeued",
+      "score": 29,
+      "num_comments": 19,
+      "created_utc": "2019-10-18",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/djpoq5/subreddit_update_and_how_you_can_help_out/",
+      "selftext": "Hi everyone. I got added here as a moderator in September and I've been trying to clean things up a bit and that started with a modqueue backlog that went back about 18 months. :-/\n\n1. I'm sure many of you disabled the theme here because the stylesheet was pretty broken, but please try it out again. I think I've fixed the worst issues and RES night mode is working pretty well too.\n\n2. I'd like to add a few more auto-responses for common questions, but they need to be pretty accurate. My heart just can't take it when AutoModerator gets downvoted. Feel free to write something up and post it here or send a modmail. I'll post the current auto-responses below so you can see what they look like.\n\n3. I'm hoping to also add some more documentation to the sidebar and wiki. Note that I can't make any edits to https://www.reddit.com/wiki/automoderator so improving anything in the official documentation is a non-starter right now.\n\n4. Please let me know if you have any suggestions or feedback about the subreddit.\n\nCheers.\n\n---\n\n    # People who post direct config links\n    type: submission\n    body (regex): '/r/\\w+/wiki/(config/automoderator|automoderator-schedule)'\n    comment: |\n        It looks like you posted a direct link to an automoderator configuration page. Remember, only subreddit moderators can see configurations.\n        \n        If you want /r/AutoModerator users to be able to see your config, you'll need to copy and paste the relevant part of the config into your {{kind}}.\n        \n---\n\n    # People who want to use AM for auto-bans\n    type: submission\n    title (regex): ['ban(ned|ning|s)?(?! (\\w+ )?(comment|link|post|text|title|word|phrase|submission))']\n    ~title (regex, includes): ['shadow']\n    title+body (regex): ['(any|some)(body|one)', 'accounts?', 'alts?', 'people', 'persons?', 'trolls?', 'users?']\n    comment: |\n        Hello there! It looks like you may be asking about how to have AutoModerator automatically ban users.\n\n        AutoModerator is not able to ban users. This is a deliberate design choice. It is generally considered a best practice for subreddit bans to be performed by humans.\n\n        If this does not answer your question, please ignore this message. If it does answer your question, please change your post's flair to \"Solved\". Thanks!\n\n---\n\n    # People who want to use AM to enforce flair\n    type: submission\n    title#1: ['flair(ed|ing|s)?']\n    title#2: ['(delet|remov)\\w* (link|post|submission|thread)s?', '(en)?forc\\w*', '(instant|quick)ly', '(not?|missing|without) ((any|link|post|some) )*flair(ing)?', 'check\\w*', 'delay', 'hours?', 'minutes?', 'must\\b.{0,16}\\bflair', 'period', 'requir\\w*', 'their (link|post|submission|thread)s?', 'time']\n    ~title: ['chang\\w*', 'set\\w*']\n    ~title+body: ['[io]n (the )?((post|submission) )?(link|title|url)', 'flair\\w* ((any|some)(body|one)|account|people|person|user)s?', 'keywords?', 'users?\\b.{0,16}\\bflair']\n    comment: |\n        Hello there! It looks like you may be asking about how to require users to set link flair on their posts.\n        \n        AutoModerator is not able to do this. AutoModerator evaluates content as it's being posted. Since link flair cannot be set until *after* a submission is already posted (unless posting on the redesign or with a \"modern\" Reddit app), submissions often not have link flair when AutoModerator is looking at it.\n        \n        Additionally, AutoModerator is not able to review content after time has passed. AutoModerator can only evaluate something when it's created, edited, or reported, and at no other times.\n        \n        To enforce link flair requirements, you will need a custom bot. Check out /r/AssistantBOT to see if it may meet your needs.\n        \n        If this does not answer your question, please ignore this message. If it does answer your question, please change your post's flair to \"Solved\". Thanks!\n\n---",
+      "over_18": false,
+      "matched_queries": [
+        "modqueue backlog"
+      ]
+    },
+    {
+      "id": "benvpk",
+      "subreddit": "AutoModerator",
+      "title": "Tried to schedule a post",
+      "author": "Jam10000",
+      "score": 6,
+      "num_comments": 12,
+      "created_utc": "2019-04-18",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/benvpk/tried_to_schedule_a_post/",
+      "selftext": "Even though I used the code that the library showed and just changed it to the way I wanted it, it still didn't work. Anyone know what's going on? I have the code below, but I also have it in a screenshot just in case it might have been a formatting error.\n\nfirst: April 18, 2019 12:26 PM -06\n\nrepeat: 12 months\n\ntitle: \"Community Suggestions for Earth Day\"\n\ntext: |\n\nHey everyone, as Earth Day is coming up on April 22nd do you have any ideas of what we should do? We could have some ideas like allowing Flat Earthers just for April 22nd. However being civil would also have to be a rule just for that day because we want to create awareness.\n\n[https://screenshots.firefox.com/PHRhj6YCRWR4cfzV/www.reddit.com](https://screenshots.firefox.com/PHRhj6YCRWR4cfzV/www.reddit.com)",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "8860hi",
+      "subreddit": "AutoModerator",
+      "title": "With reddit's redesign having a setting for required post flairs, and flairing a post before it's posted, can we have functionality to comment on a post with a specified flair?",
+      "author": "diceroll123",
+      "score": 10,
+      "num_comments": 11,
+      "created_utc": "2018-03-29",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/8860hi/with_reddits_redesign_having_a_setting_for/",
+      "selftext": "I put this in the survey that was sent out today, but a thread for it is a good idea as well.",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "5d36g8",
+      "subreddit": "AutoModerator",
+      "title": "Looking to have Automod Schedule a post that links to another sub",
+      "author": "Jaxticko",
+      "score": 4,
+      "num_comments": 8,
+      "created_utc": "2016-11-15",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/5d36g8/looking_to_have_automod_schedule_a_post_that/",
+      "selftext": "Hi all,\n\nI mod /r/lesbianactually and /r/lesbianactuallymods\n\nOn wednesdays we do a community forum on the mod sub, and then post a link to the /r/lesbianactually sub. The post on the LA sub gets locked, and all users are directed to the one on the LAMod thread.\n\nIs there any way to have the LA automod get that link from the lamod sub, and then have the LA automod post that link as a new post?",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "ekmsbm",
+      "subreddit": "AutoModerator",
+      "title": "can anyone help?",
+      "author": "accomplishedPilot2",
+      "score": 4,
+      "num_comments": 7,
+      "created_utc": "2020-01-06",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/ekmsbm/can_anyone_help/",
+      "selftext": "I need help for my new community and want to set up a auto moderator that will remove unflaired posts. (Help with the code bit..)",
+      "over_18": false,
+      "matched_queries": [
+        "remove unflaired posts"
+      ]
+    },
+    {
+      "id": "5z0kgh",
+      "subreddit": "AutoModerator",
+      "title": "Scheduling for \"Two Days Before The First Saturday Of Every Month\"",
+      "author": "Kromulent",
+      "score": 3,
+      "num_comments": 5,
+      "created_utc": "2017-03-12",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/5z0kgh/scheduling_for_two_days_before_the_first_saturday/",
+      "selftext": "I know how to schedule a post on the first Saturday of every month, like this:\n\n>rrule: \"FREQ=MONTHLY;BYDAY=1SA\"\n\nBut I'd like to post a reminder to the community two days beforehand. Is this possible?",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "617964",
+      "subreddit": "AutoModerator",
+      "title": "Scheduled post didn't happen",
+      "author": "Brian_Kinney",
+      "score": 1,
+      "num_comments": 4,
+      "created_utc": "2017-03-24",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/617964/scheduled_post_didnt_happen/",
+      "selftext": "This is a follow up to my earlier post \"[Can't set up scheduled posts](https://www.reddit.com/r/AutoModerator/comments/60jxx8/cant_set_up_scheduled_posts/)\". \n\nI scheduled a post for yesterday, but it didn't happen. Here is [a screenshot of the actual AutoMod schedule page](http://imgur.com/a/7rMTo) so you can see exactly what I did, even including the formatting. \n\nI was told [to send messages to AutoMod](https://www.reddit.com/r/AutoModerator/comments/60jxx8/cant_set_up_scheduled_posts/df765jh/) about this schedule, which I've been doing regularly, but I've never received any replies. \n\nWhat's wrong? Why isn't this working?",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "358v2p",
+      "subreddit": "AutoModerator",
+      "title": "Autopost scheduling question: Formating for the very first 6AM on Earth?",
+      "author": "MercuryPDX",
+      "score": 1,
+      "num_comments": 4,
+      "created_utc": "2015-05-08",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/358v2p/autopost_scheduling_question_formating_for_the/",
+      "selftext": "This may be a stupid question, but if I wanted to schedule a post to show up at June 1, 2015 at 6:00 AM in the very first place on Earth it can possibly be, what's the correct format for the scheduler?\n\n*A)*  first: \"June 1, 2015 6:00 AM +14\"\n\n*B)*  first: \"May 31, 2015 6:00 AM +14\"\n\n*C)*  first: \"May 31, 2015 4:00 PM +14\"\n\n*D)*  first: \"May 31, 2015 4:00 PM\"\n\nNote: Wikipedia says [UTC+14 is the very first time zone to see a new day/year](http://en.wikipedia.org/wiki/UTC%2B14:00), so that's what I'm going with.",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "4pswxq",
+      "subreddit": "AutoModerator",
+      "title": "Setting Up AutoModerator",
+      "author": "_Kierz_",
+      "score": 0,
+      "num_comments": 4,
+      "created_utc": "2016-06-25",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/4pswxq/setting_up_automoderator/",
+      "selftext": "Can anyone help me set up auto-moderator to schedule a post?",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "5arlun",
+      "subreddit": "AutoModerator",
+      "title": "Scheduling something on the first Tuesday of every month",
+      "author": "bethrevis",
+      "score": 2,
+      "num_comments": 3,
+      "created_utc": "2016-11-02",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/5arlun/scheduling_something_on_the_first_tuesday_of/",
+      "selftext": "What code should I use to schedule a post to go on the first Tuesday of each month? I currently am using:\n\n>rrule: \"FREQ=MONTHLY;BYDAY=TU\"\n\nAnd that is making it post every Tuesday each week.",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "10kh06f",
+      "subreddit": "AutoModerator",
+      "title": "Can Automod use required post flairs to automatically sort new posts into collections?",
+      "author": "neuroticsmurf",
+      "score": 5,
+      "num_comments": 2,
+      "created_utc": "2023-01-24",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/10kh06f/can_automod_use_required_post_flairs_to/",
+      "selftext": "I require post flair on all of the posts in my sub.\n\nI have just set up collections that are identical to the post flairs in my sub. (I just felt that looking at a collection was easier on the eyes than sorting by flair.)\n\nI will continue to require post flair in my sub. Is there a way to have AM automatically place new posts in collections according to which flair the poster selects?\n\n(E.g., my post flairs are 'dogs', 'cats', 'insects', 'marine life', etc. I just set up identical collections. Can AM automatically place a new post in the 'dogs' collection if the poster selects the 'dogs' post flair?)",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "guu20t",
+      "subreddit": "AutoModerator",
+      "title": "Automod to require flair on posts?",
+      "author": "sveltegamine",
+      "score": 2,
+      "num_comments": 2,
+      "created_utc": "2020-06-01",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/guu20t/automod_to_require_flair_on_posts/",
+      "selftext": "Hey folks, I'm a relatively new mod; I've spent some time browsing this sub but I'm still a bit confused and would like some help. I want my posts to require flair. I looked around on reddit, and saw that requiring flair was a feature in new reddit, if you go to (Mod Tools > Post Flair Settings > and set both \"Enable post flair in this community\" and \" Allow users to assign their own \" to the on position), then going to (Post Requirements > require post flair set to on). However we are still getting posts that do not have flair. I asked one person who was posting, if they could tell me what they were posting from, and they replied that they were on mobile. I also know a fair amount of people on my sub use old reddit, as well. I'm wondering if I need to set up an automod for users on old reddit and/or mobile, or if I'm doing something wrong / need to be doing something else to make people use flair. The first example I can get off the top of my head of a sub that does what I want is r/magiarecord, which (at least on new reddit) if you try to submit a post without flair, it tells you that your post must contain flair and to fix the above requirements. I know I've seen other subs that seem to have an automod of some kind, where your post was automatically removed and you recieved a message telling you such and warning you that you need to use flair. Sorry, I know that's a lot to read, I just want to make sure I give as much info about the problem I'm having, and what I am aiming for, as possible. Thank you in advance for your patience and help!",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "3825v7",
+      "subreddit": "AutoModerator",
+      "title": "set_suggest_sort",
+      "author": "norm_",
+      "score": 0,
+      "num_comments": 2,
+      "created_utc": "2015-06-01",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/3825v7/set_suggest_sort/",
+      "selftext": "[This](http://www.reddit.com/r/AutoModerator/comments/354zqf/setting_suggested_sort_on_scheduled_posts/cr7b517) post from 3 weeks ago said it wasn't working.\n\nI think it's still not working. Can anyone confirm?\n\nIf there is a method I'm missing (couldn't raelly get the syntax, there is not enough code samples) I'd like to know before I schedule a post and forget about it.",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "4bx89c",
+      "subreddit": "AutoModerator",
+      "title": "[2 Questions?] Is it possible to.. do either one of the following?",
+      "author": "Chigzy",
+      "score": 0,
+      "num_comments": 2,
+      "created_utc": "2016-03-25",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/4bx89c/2_questions_is_it_possible_to_do_either_one_of/",
+      "selftext": "So I own /r/chigz and I had two questions\n\n1. Make AutoModerator automatically delete a post (or multiple posts) based on it's title.\n - so whenever IFTTT posts this post I would like that specific post to be removed.\n\n2. Schedule a post to be created every 24 hours with a specific title\n - so a post is created at midnight GMT which has the title as Today's Date\n - context is not necessary but would be nice\n\nthanks",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "nevpzw",
+      "subreddit": "AutoModerator",
+      "title": "How do I make Automod remove unflaired posts and remove post with certain flairs when OP doesn't have enough time in reddit or enough karma? Is it possible?",
+      "author": "Music_On_me",
+      "score": 2,
+      "num_comments": 1,
+      "created_utc": "2021-05-17",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/nevpzw/how_do_i_make_automod_remove_unflaired_posts_and/",
+      "selftext": "Let's say I have a flair called \"example1\" and another flair called \"example1 2\" and I want to make Automod remove post flaired with the example1 flair when the account doesn't have enough days on Reddit?",
+      "over_18": false,
+      "matched_queries": [
+        "remove unflaired posts"
+      ]
+    },
+    {
+      "id": "54or0l",
+      "subreddit": "AutoModerator",
+      "title": "Errors when scheduling a post",
+      "author": "devvydowner",
+      "score": 2,
+      "num_comments": 1,
+      "created_utc": "2016-09-27",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/54or0l/errors_when_scheduling_a_post/",
+      "selftext": "I've been messing with this for a few hours, and I haven't made any progress. I'm totally new to this level of AutoMod, so I pretty much have no idea what I'm doing. \n\n[This is the error](http://imgur.com/a/xq7CD) I'm getting, and below is what I've got in the wiki page. (All my lines are indented 4 spaces, also.)\n\n>first: September 27, 2016 8:00 AM -08\n\n>repeat: 3 months\n\n>title: AC:NL Friend Code Mega Thread\n\n>text: |\n\n>This is a new thread that will be automatically re-posted every 3 months. Please do not post individual threads to exchange FC's with other users, use this thread only.\n\n>Format your code like so: [####-####-####  Mayor/Character Name(s), Town Name(s)]\n\n>Example: [0000-0000-0000 Mayor X, Leafburg]\n\n>Make sure you sort by 'new' in order to see the most recent posts!\n\nAny help will be greatly appreciated!",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "fq24t1",
+      "subreddit": "AutoModerator",
+      "title": "Embedding {{permalink}} creates broken links only on certain platforms. Bug?",
+      "author": "TranZeitgeist",
+      "score": 4,
+      "num_comments": 0,
+      "created_utc": "2020-03-27",
+      "link": "https://www.reddit.com/r/AutoModerator/comments/fq24t1/embedding_permalink_creates_broken_links_only_on/",
+      "selftext": "---\n    \n    # AM message for new users\n    type:  submission\n    author:\n        post_karma:  < #karma limit\n    ~domain: [#.com, #.#, #] # We have a different rule for posts matching some domains\n    action:  remove\n    action_reason:  check \n    message:  |\n            \n            Hi {{author}}, your post was removed ... to approve a post, just [click this link, then click \"send\"](http://www.reddit.com/message/compose/?to=/r/SUBREDDIT&subject=Approval%20Please%3F&message={{permalink}}) and a moderator will take a closer look.\n    \n    ---\n\nThis works as expected in most cases, while a small % of users modmail letting us know the link they receive will not work. That is - Rule triggers, sends the message, but the link\n\n    http://www.reddit.com/message/compose/?to=/r/SUBREDDIT&subject=Approval%20Please%3F&message={{permalink}}\n\n(updated with no change in behavior from:)\n\n    http://www.reddit.com/message/compose/?to=/r/SUBREDDIT&subject=Approval Please%3F&message={{permalink}}\n\nwon't work; they use the bottom \"I'm automated, modmail here\" link. So thankfully it's only a small impact. But what we seem to be finding is this is specific to users logged in on mobile, possibly only when [i.redd.it](https://i.redd.it) and [v.redd.it](https://v.redd.it) links are involved. \n\nIs this an issue for r/bugs?",
+      "over_18": false,
+      "matched_queries": [
+        "automate modmail"
+      ]
+    }
+  ]
+}

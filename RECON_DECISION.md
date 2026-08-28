@@ -1,131 +1,186 @@
 # Devvit Recon — Scoring & Build Decision
 
-Corpus and chore rows: `RECON_CAPTURE.md` (58 threads, 23 live chores).
-This file is the scoring pass and the scope freeze.
+Corpus: `RECON_CAPTURE.md` (58 threads) + `data/output/automod_chore_corpus.json`
+(17 threads, chore-noun sweep). This file is the scoring pass and the scope decision.
 
 ---
 
-## Gate checks
+## ⚠️ Gate 1 — CORRECTED. My earlier answer was wrong.
 
-### Gate 1 — Does Reddit natively require post flair? **Answered, with a wrinkle**
+**I previously reported there is no native "require post flair" toggle.** That came from a
+third-party blog and a search-engine summary. The corpus now contradicts it from three
+independent primary sources:
 
-⚠️ *Second-hand.* `support.reddithelp.com`, `mods.reddithelp.com`, `mod.reddit.com`
-and `developers.reddit.com` are all blocked at this environment's egress proxy. The
-findings below come from search-engine summaries of those pages plus one third-party
-guide — not from pages actually fetched. **Confirm in mod settings.**
-
-Three findings, and the order matters:
-
-1. **No native "require post flair" toggle.** Mods enable post flair under Content and
-   Controls, then enforce the requirement with AutoModerator.
-   ([guide](https://blog.devvyy.xyz/blog/2025/reddit/how-to-make-post-flairs-required/))
-2. **But AutoModerator already covers the hard version.** A `flair_text: ""` rule removes
-   unflaired posts at submission. Every sub already has this available.
-3. **AutoModerator cannot cover the soft version.** Per Reddit's own AutoModerator help
-   page: *"AutoModerator can only act on new posts, comments, reports or edits, and
-   cannot delay an action"* — and it *"cannot act on old or past content."*
-   ([Reddit mod help](https://mods.reddithelp.com/hc/en-us/articles/360002561632-AutoModerator))
-
-**Net effect on row 1:** your predicted downgrade lands, but on a different axis than
-expected. Automod-gap **stays at 3** — the delay is structurally impossible and Reddit
-documents it in those words. What takes the hit is conversion, exactly as you called it:
-the competitor is not a native toggle, it is the automod rule the sub already runs. The
-pitch is *"kinder than the blunt removal you already have,"* not *"you need this."*
-
-The corpus asked for precisely the soft version, seven years ago and unprompted:
-> *"Would it be possible to have automod say delete a post after 2 minutes if it has not
-> been assigned a flair yet? If automod can't do it is there some other way?"*
-> — r/AutoModerator, 2019-01-16
-
-### Gate 2 — Devvit app directory sweep: **NOT COMPLETED. Still owed.**
-
-`developers.reddit.com` is blocked at egress and a general web search is not the app
-directory. The only app I independently surfaced was
-[shiruken/only-flairs](https://github.com/shiruken/only-flairs), which corroborates your
-row 17 finding. **No timed-removal app appeared — but absence from a web search is not
-absence from the directory, and I will not report this gate as passed.**
-
-Search the directory yourself for: `scheduler`, `timer`, `delayed`, `grace period`,
-`flair reminder`, `unflaired`. Do it before writing code.
-
----
-
-## Scoring — `want × conversion` (adopted)
-
-Your reframing is right and it replaces the rubric's Breadth axis. An incumbent doesn't
-reduce want; it removes installs from the winnable pool. Recording it as scored:
-
-| Row | Chore | Want | Conv | **Realized** | Binding constraint |
-|---|---|---|---|---|---|
-| **1** | **Delayed post re-check** | 3 | **3** | **9** | Remove/flair permissions only; one primitive, six asks |
-| **19** | **Modmail auto-reply** | 3 | **3** | **9** | Small build, modest permissions — *frequency is a query artifact* |
-| 6 | Act on report reasons | 2 | 3 | 6 | Skews to subs organized enough to configure custom reports |
-| 5 | Ban / mute / rate-limit | 3 | 2 | 6 | Scariest permission ask on the platform |
-| 17 | Restrict commenting | 2 | 2 | 4 | Near-substitute ships (Only Flairs) |
-| 2 | Image analysis | 3 | **1** | 3 | Per-image inference cost; false positives break the 7-day hold |
-| 9 | Account verification | 3 | **1** | 3 | Demand concentrates NSFW → fails the monetization gate |
-| 3 | Mod-action triggers | 1 | 2 | 2 | Largely occupied (FlairAssistant, FlairGuard) |
-| 21 | Auto-spoiler | 1 | 2 | 2 | Launch-driven; cannot hold 7 consecutive days |
-| 13 | Automod sandbox | 3 | **0** | **0** | Used once while writing a rule, never installed. Website, not an app |
-
-### Row 19 and the query artifact
-
-Not a market signal — an instrument defect, and mine to own. None of the ten queries
-contained a chore noun: no *modmail*, *flair*, *queue*, *sticky*, *verification*. They
-were all generic tool-request patterns, so they could only find demand phrased as a
-generic tool request. A frequency of 1 on modmail measures the query set, not the market.
-Row 11 is likely affected the same way.
-
-**Fixed in the harness.** `recon.py --queryset chore` runs ten chore-noun queries
-(`automate modmail`, `remove unflaired posts`, `require post flair`, `clear the modqueue`,
-`verify new users`, …); `--queryset both` runs all twenty. Run it before treating any
-frequency-of-1 row as settled.
-
----
-
-## Incumbent register
-
-| App | Covers | Effect |
+| Thread | Date | What it says |
 |---|---|---|
-| FlairAssistant | Actions on mod-set flair, incl. removal reasons and banning | Row 3 largely occupied |
-| FlairGuard | Same trigger model + lock, modmail, temp ban, mod dashboard | Row 3 largely occupied |
-| [Only Flairs](https://github.com/shiruken/only-flairs) | Restricts commenting to flaired users | Row 17 near-substitute |
-| identify-reposts | On-Reddit repost detection, pre-submission webview | Row 2 on-Reddit half |
+| [8860hi](https://www.reddit.com/r/AutoModerator/comments/8860hi/) | 2018-03 | *"reddit's redesign having a setting for required post flairs"* |
+| [guu20t](https://www.reddit.com/r/AutoModerator/comments/guu20t/) | 2020-06 | Names the exact path: *Mod Tools > Post Flair Settings > … > Post Requirements > require post flair set to on* |
+| [10kh06f](https://www.reddit.com/r/AutoModerator/comments/10kh06f/) | 2023-01 | *"I require post flair on all of the posts in my sub"* — working |
 
-**Row 1 survives.** All three flair apps fire on a **mod action**. Row 1 fires on
-**elapsed time with no action** — a trigger none of them have. That distinction is the
-product.
+**The native toggle exists.** What matters now is the failure mode u/sveltegamine reports
+immediately after switching it on:
 
-**Positioning consequence:** flair-heavy subs already run a flair app. You are asking for
-a second one. Lead with the timer, not with flair.
+> *"However we are still getting posts that do not have flair… I asked one person who was
+> posting, if they could tell me what they were posting from, and they replied that they
+> were on mobile. I also know a fair amount of people on my sub use old reddit."*
+
+So the native setting **leaks** — old reddit and older mobile clients bypass it. That was
+true in 2020. **Whether it still leaks in 2026 is now the single question that decides
+this build**, and it is not answerable from the corpus.
+
+### The find that reframes everything
+
+[djpoq5](https://www.reddit.com/r/AutoModerator/comments/djpoq5/) (2019, u/dequeued)
+publishes r/AutoModerator's own **auto-response macros**. One is a purpose-built regex for
+flair-enforcement questions — its trigger list includes `delay`, `period`, `hours?`,
+`minutes?`, `time`. The canned reply:
+
+> *"AutoModerator is not able to do this. AutoModerator evaluates content as it's being
+> posted. Since link flair cannot be set until* after *a submission is already posted…
+> submissions often not have link flair when AutoModerator is looking at it.*
+> *Additionally, AutoModerator is not able to review content after time has passed.
+> AutoModerator can only evaluate something when it's created, edited, or reported, and at
+> no other times.*
+> *To enforce link flair requirements, you will need a custom bot. Check out /r/AssistantBOT."*
+
+Three things follow, and they cut in different directions:
+
+1. **My "automod already covers the hard version" claim was also wrong.** A `flair_text: ""`
+   removal at submit time produces *false removals*, because on old reddit and mobile the
+   flair is set after posting. The automod workaround is broken for this use case, and
+   r/AutoModerator says so in an automated reply. **Row 1's conversion goes back up** — the
+   competitor is not a working automod rule.
+2. **The question is asked often enough that the sub automated the answer.** A community
+   only writes a macro for a question it is tired of answering. That is stronger frequency
+   evidence than any thread count in this corpus.
+3. **A named incumbent surfaces: r/AssistantBOT.** A pre-Devvit bot the sub officially
+   recommends for exactly this chore. Its current status is unknown and must be checked.
 
 ---
 
-## v1 scope — frozen, pending Gate 2
+## Gate 2 — Devvit directory: partially complete
 
-> **Timed removal of unflaired posts: a configurable grace period, a warning comment, and
-> auto-restore when the author adds flair.**
+Searched: `scheduler`, `timer`, `delayed`, `grace period`, `unflaired`.
 
-The other five sub-asks under row 1 are the roadmap if installs come. They are not v1.
-The "one primitive serves six asks" framing is true, and it is exactly the framing that
-turns a weekend into 108 days.
+| Search | Result |
+|---|---|
+| `delayed` | **Nothing found** |
+| `grace period` | **Nothing found** |
+| `unflaired` | **Nothing found** |
+| `scheduler` | 5 apps — all *post publishing*, not delayed re-check |
+| `timer` | 3 apps — one relevant |
 
-### Open technical risk — spike this before committing
+### What is occupied
 
-**Auto-restore is the unverified half, and it carries the whole pitch.** The warn-and-
-remove half is plainly buildable: a scheduler plus a flair check. Restore requires two
-things nobody has confirmed:
+| App | Installs | Blocks |
+|---|---|---|
+| **OP Reply Enforcer (reply-timer)** — *"cascading timers for initial community responses and mandatory OP replies"* | **3** | Row 1 sub-ask "remove if OP doesn't engage" — the TipOfMyTongue chore. Weak adoption. |
+| **Flair Scheduler** — *"Allow a flair to be used only on a certain day or set of days"* | **84** | Row 1 sub-ask "restrict content by day-of-week" |
+| Image Post Scheduler *(Winner – Best New Mod Tool)* | 384 | Nothing of ours — publishes scheduled content |
+| schedulerplus / Scheduler / EpisodeScheduler | 61 / 10 / 5 | Nothing of ours — same category |
 
-1. **Can an author set flair on their own removed post?** If the flair editor is
-   unavailable once a post is removed, auto-restore is impossible by construction.
-2. **Does a flair-change event fire for removed content?** Devvit exposes a post-flair
-   trigger; whether it fires on removed posts is unknown.
+**Critical distinction: every "Scheduler" app publishes content at a time. None of them
+re-checks an existing post after a delay.** Those are different products that share a word.
 
-If either answer is no, the tool degrades to *automod with a delay* — a materially weaker
-pitch, because the kindness you are selling is the restore, not the wait.
+### What is still clear
 
-**Cheaper design that sidesteps both:** at T+grace, **filter** instead of remove. The post
-lands in modqueue, stays recoverable by a human, and the restore path never has to work.
-Worth testing against the remove-and-restore version before committing to either.
+**No app matched `unflaired`, `grace period`, or `delayed`.** The v1 as scoped has no
+directory incumbent.
 
-One hour of spiking answers all of this. Do it after Gate 2, before scope freeze.
+### Still unsearched — do these
+
+`suspended` · `modqueue` · `cleanup` · `flair reminder` · `stale` · `expire`
+
+These cover row 1 sub-asks 4 and 6, which were never checked.
+
+---
+
+## Install-count calibration — read this before committing to 50
+
+The screenshots give real adoption numbers, and they reset expectations:
+
+| Percentile of what's visible | Installs |
+|---|---|
+| Award-winning mod tool (Image Post Scheduler) | 384 |
+| Solid mid-tier (Flair Scheduler) | 84 |
+| Typical (schedulerplus) | 61 |
+| Long tail (Scheduler, EpisodeScheduler, OP Reply Enforcer) | 10, 5, 3 |
+
+**Your target of 50 qualifying installs lands between the 61 and 84 tier.** That is roughly
+top-quartile for a Devvit mod tool, and it is ~13% of what a category-winning app achieved.
+Achievable, but it is not the low bar the "50" number makes it sound like. Most apps in this
+directory never reach 10.
+
+---
+
+## Chore-noun sweep — what it did and did not settle
+
+Run: r/AutoModerator only, `time=all`. **17 threads. 5 of 10 queries returned zero.**
+
+| Query | Hits | Read |
+|---|---|---|
+| `schedule a post` | 10 | All about automod's *scheduled posts* feature — syntax help and debugging. Different chore. Native scheduled posts + 5 Devvit apps now cover it. **Dead.** |
+| `require post flair` | 3 | **Gold.** All three are the Gate 1 evidence above. |
+| `remove unflaired posts` | 2 | Both genuine; one is a plain "help me write this rule" |
+| `modqueue backlog` | 1 | The dequeued macro post — the most valuable single hit in the corpus |
+| `automate modmail` | 1 | False positive (a `{{permalink}}` bug report) |
+| `modmail auto response`, `clear the modqueue`, `verify new users`, `detect ban evasion`, `pin a comment automatically` | **0** | — |
+
+**Row 19 remains untested.** This run covered r/AutoModerator only; modmail chatter lives in
+r/ModSupport and r/ModHelp. The primary sweep — all five subs, `top`/`year` — has not been
+run, and it is the only one that can produce prospects.
+
+---
+
+## Revised recommendation
+
+The flair v1 is now **contingent**, not confirmed. Native require-post-flair exists; the
+whole value rests on whether it still leaks in 2026.
+
+### Option A — original v1, contingent on one test
+
+> Timed removal of unflaired posts: configurable grace period, warning comment, auto-restore
+> on flair.
+
+Alive **only if** the native toggle still leaks. If Reddit closed that hole, the surviving
+market is subs with heavy old-reddit traffic plus mods who prefer a grace period to a hard
+block — a much smaller pool than we scored.
+
+### Option B — the sub-ask nobody has checked, and it may be better
+
+> Clear modqueue entries whose author has since been suspended, deleted, or banned.
+
+Why it may beat Option A now:
+
+- **Zero false-positive risk.** A suspended account's post is unambiguously actionable. Nothing
+  to get wrong, no angry mod thread, so it holds the 7-day window.
+- **Remove-only permissions.** The cheapest possible install ask.
+- **Invisible to users.** No user-facing behavior means no community backlash surface.
+- **Topic-neutral.** Every sub with a modqueue, no genre skew, no NSFW concentration.
+- **Live 2026 demand** — u/coopersoar, r/ModHelp, Jan 2026, still open.
+- **Native alternative: none known.** Automod cannot act after time passes.
+
+Its weakness is lower emotional salience — nobody writes an angry post about modqueue lint —
+which usually means lower organic discovery.
+
+**I would not choose between these until the two tests below are done.** They are cheap and
+they decide it.
+
+---
+
+## Next actions, in order
+
+1. **Test the native flair leak (20 min, decides Option A).** Enable Post Requirements →
+   require post flair in a test sub. Then try to submit without flair from (a) old.reddit.com,
+   (b) the official mobile app, (c) new reddit. **Any successful unflaired post = Option A is
+   alive.** All three blocked = Option A is dead, go to Option B.
+2. **Check r/AssistantBOT (10 min).** Is it still running? If yes, it is a direct incumbent
+   with years of head start. If it is dead, that is a vacuum *and* a migration pitch.
+3. **Finish the directory sweep (10 min).** Search `suspended`, `modqueue`, `cleanup`,
+   `stale`, `expire`, `flair reminder`. This is the Gate 2 check for Option B.
+4. **Run the primary chore sweep** — `python recon.py --queryset chore` across all five subs.
+   Still the only outstanding source of named prospects.
+5. **Then freeze scope**, and only then spike the auto-restore question (whether an author can
+   flair their own removed post, and whether a flair event fires for removed content).
+
+Steps 1–3 are 40 minutes total and they determine what gets built.
