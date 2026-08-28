@@ -7,6 +7,9 @@
 
 58 threads → **23 live chores + 1 dead.** Past the 20-row gate.
 
+➡️ **Scoring, incumbent register and the v1 scope freeze live in `RECON_DECISION.md`.**
+Rows 3 and 17 are now known to be incumbent-occupied; see that file before scoring them.
+
 `Times seen` = independent threads. Same-author cross-posts flagged, not double-counted.
 
 ---

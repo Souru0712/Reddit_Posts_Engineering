@@ -33,7 +33,14 @@ python recon.py --no-quote              # loose terms instead of exact phrase
 python recon.py --time all              # widen beyond the year
 python recon.py --limit 250             # more hits per query
 python recon.py --subreddits AutoModerator ModSupport
+python recon.py --queryset chore                # 10 chore-noun queries
+python recon.py --queryset both                 # all 20
 ```
+
+The default `tool` query set contains no chore nouns — no "modmail", "flair",
+"queue", "sticky" — so it can only surface demand phrased as a generic tool
+request. `--queryset chore` tests for demand that set structurally cannot see.
+Run it before treating any frequency-of-1 row as settled.
 
 Default is `--sort top --time year` with phrase-quoted queries. Quoting is what
 makes these *exact* queries: `"automod can't"` matches the phrase, unquoted

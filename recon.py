@@ -46,6 +46,29 @@ QUERIES = [
     "spending hours",
 ]
 
+# Chore-noun queries. The generic set above contains no chore nouns — no
+# "modmail", "flair", "queue", "sticky" — so it can only find demand that
+# happens to be phrased as a generic tool request. This set tests for demand
+# the other one structurally cannot see.
+CHORE_QUERIES = [
+    "automate modmail",
+    "modmail auto response",
+    "remove unflaired posts",
+    "require post flair",
+    "modqueue backlog",
+    "clear the modqueue",
+    "verify new users",
+    "detect ban evasion",
+    "pin a comment automatically",
+    "schedule a post",
+]
+
+QUERY_SETS = {
+    "tool": QUERIES,
+    "chore": CHORE_QUERIES,
+    "both": QUERIES + CHORE_QUERIES,
+}
+
 USER_AGENT = "python:devvit-recon:0.1 (week-1 capture, read-only)"
 OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "output")
 
@@ -116,7 +139,8 @@ def render_markdown(posts, meta):
     )
     lines.append("")
     lines.append(
-        f"{meta['searches']} searches ({len(SUBREDDITS)} subreddits × {len(QUERIES)} queries) · "
+        f"{meta['searches']} searches ({len(meta['subreddits'])} subreddits × "
+        f"{len(meta['queries'])} queries, set='{meta['queryset']}') · "
         f"{meta['raw_hits']} raw hits · **{len(posts)} unique threads**"
     )
     lines.append("")
@@ -128,10 +152,11 @@ def render_markdown(posts, meta):
 
     lines.append("## Hits per subreddit × query")
     lines.append("")
-    lines.append("| Query | " + " | ".join(f"r/{s}" for s in SUBREDDITS) + " |")
-    lines.append("|---|" + "---|" * len(SUBREDDITS))
-    for q in QUERIES:
-        row = [str(meta["grid"].get(f"{s}|{q}", 0)) for s in SUBREDDITS]
+    subs, queries = meta["subreddits"], meta["queries"]
+    lines.append("| Query | " + " | ".join(f"r/{s}" for s in subs) + " |")
+    lines.append("|---|" + "---|" * len(subs))
+    for q in queries:
+        row = [str(meta["grid"].get(f"{s}|{q}", 0)) for s in subs]
         lines.append(f"| `{q}` | " + " | ".join(row) + " |")
     lines.append("")
 
@@ -183,6 +208,9 @@ def main():
     ap.add_argument("--limit", type=int, default=100, help="max hits per query (default 100)")
     ap.add_argument("--no-quote", dest="quote", action="store_false",
                     help="search loose terms instead of the exact phrase")
+    ap.add_argument("--queryset", default="tool", choices=sorted(QUERY_SETS),
+                    help="tool: the original 10 generic patterns (default); "
+                         "chore: 10 chore-noun queries; both: all 20")
     ap.add_argument("--subreddits", nargs="*", default=SUBREDDITS)
     args = ap.parse_args()
 
@@ -196,8 +224,10 @@ def main():
     raw_hits = 0
     searches = 0
 
+    queries = QUERY_SETS[args.queryset]
+
     for sub in args.subreddits:
-        for query in QUERIES:
+        for query in queries:
             searches += 1
             try:
                 hits = search(reddit, sub, query, args.sort, args.time_filter,
@@ -230,6 +260,9 @@ def main():
         "sort": args.sort,
         "time_filter": args.time_filter,
         "quote": args.quote,
+        "queryset": args.queryset,
+        "queries": queries,
+        "subreddits": list(args.subreddits),
         "searches": searches,
         "raw_hits": raw_hits,
         "grid": grid,
