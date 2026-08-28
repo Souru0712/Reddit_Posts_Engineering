@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+
+# Holds live Reddit API credentials — never commit
+config/config.conf
