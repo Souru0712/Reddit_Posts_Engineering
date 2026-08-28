@@ -208,6 +208,9 @@ def main():
     ap.add_argument("--limit", type=int, default=100, help="max hits per query (default 100)")
     ap.add_argument("--no-quote", dest="quote", action="store_false",
                     help="search loose terms instead of the exact phrase")
+    ap.add_argument("--out", default="recon",
+                    help="output basename; writes <out>_corpus.json and "
+                         "<out>_capture.md (default: recon)")
     ap.add_argument("--queryset", default="tool", choices=sorted(QUERY_SETS),
                     help="tool: the original 10 generic patterns (default); "
                          "chore: 10 chore-noun queries; both: all 20")
@@ -270,8 +273,8 @@ def main():
     }
 
     os.makedirs(OUT_DIR, exist_ok=True)
-    json_path = os.path.join(OUT_DIR, "recon_corpus.json")
-    md_path = os.path.join(OUT_DIR, "recon_capture.md")
+    json_path = os.path.join(OUT_DIR, f"{args.out}_corpus.json")
+    md_path = os.path.join(OUT_DIR, f"{args.out}_capture.md")
 
     with open(json_path, "w", encoding="utf-8") as fh:
         json.dump({"meta": meta, "posts": posts}, fh, indent=2, ensure_ascii=False)

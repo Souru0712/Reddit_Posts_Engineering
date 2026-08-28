@@ -22,8 +22,8 @@ Takes about a minute. Outputs:
 
 | File | Contents |
 |---|---|
-| `data/output/recon_capture.md` | Hit grid, capture table, distribution-plan prospect list |
-| `data/output/recon_corpus.json` | Full records incl. post bodies — the input for chore clustering |
+| `data/output/<out>_capture.md` | Hit grid, capture table, distribution-plan prospect list |
+| `data/output/<out>_corpus.json` | Full records incl. post bodies — the input for chore clustering |
 
 ## Flags
 
@@ -35,6 +35,7 @@ python recon.py --limit 250             # more hits per query
 python recon.py --subreddits AutoModerator ModSupport
 python recon.py --queryset chore                # 10 chore-noun queries
 python recon.py --queryset both                 # all 20
+python recon.py --out sweep2                    # write to sweep2_corpus.json
 ```
 
 The default `tool` query set contains no chore nouns — no "modmail", "flair",
