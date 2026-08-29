@@ -127,11 +127,26 @@ actually works."*
 
 Not in v1: the other five row-1 sub-asks, day-of-week rules, OP-engagement timers.
 
-### One open technical question — spike before writing features
+### The restore question is smaller than I first stated
 
-Can an author set flair on their own **removed** post, and does a flair-change event fire
-for removed content? If either is no, use **filter** instead of remove at T+delay: the post
-sits in modqueue, stays recoverable, and the restore path never has to work.
+I raised two blockers. One dissolves on inspection, and the other only picks a UX.
+
+**Blocker 1 — "does a flair-change event fire for removed posts?" — deleted.** The product
+is already a periodic job. That same tick can re-check previously-removed posts for newly
+added flair and approve them. No event subscription is needed at all.
+
+**Blocker 2 — "can an author flair their own removed post?" — decides UX, not viability**,
+because there is a design that never asks them to:
+
+| | Flow | Needs the author to flair a removed post? |
+|---|---|---|
+| **UX A** | Remove → author adds flair normally → next tick restores | Yes |
+| **UX B** | Remove → app comments the flair list → author replies `Discussion` → app sets the flair itself and approves | **No** |
+
+The app holds mod permissions, so in UX B it sets flair on the author's behalf. UX B ships
+regardless of the answer. UX A is nicer when available.
+
+**If time is short, build UX B and skip the test entirely.**
 
 ---
 
@@ -157,10 +172,27 @@ available and it is entirely async.
 | u/Ok-Huckleberry5836 | Can't seem to disable "No Flair" option (2025-10) | ModSupport |
 | u/jfb3 | Automod and post flair requirement don't function (2025-09) | ModHelp |
 
-**Read first, do not cold-pitch:** u/tired_of_the_woes, *"Making Flairs Mandatory (solution,
-2026)"* (ModHelp, 2026-07-23) and u/brentspine, *"Updated 2025: Require post flair"*
-(ModHelp, 2025-10). These publish the current workaround. They are either your competition
-or your best allies — know what they recommend before you ship.
+### The two "solution" threads — read, and they are not competitors
+
+Both just say *flip the native toggle*. Neither ships a tool. And the second one confirms
+the leak in the author's own words:
+
+- [Making Flairs Mandatory (solution, 2026)](https://www.reddit.com/r/modhelp/comments/1v47apj/making_flairs_mandatory_solution_2026/)
+  — u/tired_of_the_woes, 2026-07-23. Four steps: Mod Tools → Posts & Comments → Require
+  Post Flair → toggle on. Scored **0**.
+- [Updated 2025: Require post flair](https://www.reddit.com/r/modhelp/comments/1oj8hoj/updated_2025_require_post_flair/)
+  — u/brentspine, 2025-10-29. Same instruction, plus: **"Seems to only work on Desktop."**
+
+That line is the product. The native toggle is desktop-only; mobile and old reddit walk
+straight past it. It is stated flatly by a mod who went looking, in October 2025.
+
+brentspine also notes he posted it *because search did not surface an answer* — and that
+r/AutoModerator's auto-response points at an outdated thread. **Discovery for this problem
+is broken**, which favours a directory-listed app.
+
+Two further evidence threads he links, not in our corpus:
+[ModSupport 1g707qh](https://www.reddit.com/r/ModSupport/comments/1g707qh/how_do_i_make_post_flair_mandatory/) ·
+[ModHelp 1afagnx](https://www.reddit.com/r/modhelp/comments/1afagnx/how_do_you_make_tags_and_flair_required_on_a/)
 
 ---
 
