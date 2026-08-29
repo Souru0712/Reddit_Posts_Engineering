@@ -125,6 +125,12 @@ Comfortably past the kill threshold of 12.
 Positioning is the native toggle's failure, not kindness: *"Require Post Flair, except it
 actually works."*
 
+**Must-have config, found while testing:** `exempt_moderators`, defaulting to **on**.
+Reddit's native post requirements do not apply to moderators, and automod's convention is
+`moderators_exempt: true`. Without this, the first thing a mod team sees after installing is
+their own posts being removed. This also means the leak **cannot be reproduced from a
+moderator account** — testing it needs a non-mod alt.
+
 Not in v1: the other five row-1 sub-asks, day-of-week rules, OP-engagement timers.
 
 ### The restore question is smaller than I first stated
@@ -147,6 +153,11 @@ The app holds mod permissions, so in UX B it sets flair on the author's behalf. 
 regardless of the answer. UX A is nicer when available.
 
 **If time is short, build UX B and skip the test entirely.**
+
+*Status: test abandoned as not worth the setup.* Reproducing the leak requires a second,
+non-moderator account because of the exemption above. Observed on a moderator's own post,
+the author `...` menu offers no flair control at all — weak evidence that UX A may be
+unavailable regardless. **Decision: build UX B.**
 
 ---
 
