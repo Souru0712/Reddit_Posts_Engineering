@@ -154,10 +154,20 @@ regardless of the answer. UX A is nicer when available.
 
 **If time is short, build UX B and skip the test entirely.**
 
-*Status: test abandoned as not worth the setup.* Reproducing the leak requires a second,
-non-moderator account because of the exemption above. Observed on a moderator's own post,
-the author `...` menu offers no flair control at all — weak evidence that UX A may be
-unavailable regardless. **Decision: build UX B.**
+### Test result — UX A is not available. Confirmed, not assumed.
+
+Tested 2026-08-29 on a removed post, viewed as its author: **no flair control exists
+anywhere** — not in the post's `...` menu (Edit post body / Save / Hide / Language /
+Delete / spoiler / NSFW / brand affiliate / reply notifications), and not inside the edit
+flow either.
+
+An author cannot add flair to their own removed post. **UX A is impossible. Build UX B**,
+where the app sets the flair itself after the author replies with a name.
+
+Unrelated observation from the same session: the leak could not be reproduced from a
+moderator account, since post requirements exempt moderators. That does not affect the
+corpus evidence — those 18 reports concern ordinary users — but a marketing screenshot of
+an unflaired post landing while the toggle is on needs a non-mod alt.
 
 ---
 
