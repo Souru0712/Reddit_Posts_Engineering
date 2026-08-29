@@ -12,11 +12,9 @@ def connect_reddit(client_id, client_secret, user_agent) -> Reddit:
     try:
         reddit = praw.Reddit(client_id=client_id,
                              client_secret=client_secret,
-                             password="L@l232393025",
-                             user_agent=user_agent,
-                             username="souru0712")
+                             user_agent=user_agent)
+        reddit.read_only = True
         print("connected to reddit!")
-        print(reddit.user.me())
         return reddit
     except Exception as e:
         print(e)
