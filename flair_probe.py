@@ -46,19 +46,22 @@ def bucket_for(age_min):
     return BUCKETS[-1][1]
 
 
-def flair_required(subreddit):
-    """True/False, or None if the requirement could not be read."""
+def requirement_keys(subreddit):
+    """Diagnostic: what does post_requirements actually return? Guessing a key
+    name is what broke the first run, so dump the truth instead."""
     try:
-        req = subreddit.post_requirements()
-    except Exception:
-        return None
-    for key in ("is_flair_required", "isFlairRequired"):
-        if key in req:
-            return bool(req[key])
-    return None
+        return sorted(subreddit.post_requirements().keys())
+    except Exception as exc:  # noqa: BLE001
+        return [f"<{type(exc).__name__}>"]
 
 
 def sample_subreddit(subreddit, limit):
+    """Rows for one subreddit's newest posts, plus its overall flair rate.
+
+    A sub whose posts are almost all flaired is one where flair is effectively
+    required — whatever the settings say. That behavioural test needs no
+    endpoint and cannot break on a renamed field.
+    """
     now = datetime.now(timezone.utc).timestamp()
     rows = []
     for post in subreddit.new(limit=limit):
@@ -68,7 +71,8 @@ def sample_subreddit(subreddit, limit):
             "age_min": max(0.0, (now - post.created_utc) / 60.0),
             "flaired": bool(getattr(post, "link_flair_text", None)),
         })
-    return rows
+    rate = (sum(1 for r in rows if r["flaired"]) / len(rows)) if rows else 0.0
+    return rows, rate
 
 
 def check_assistantbot(reddit):
@@ -114,6 +118,9 @@ def main():
                     help="posts sampled per qualifying subreddit (default 100)")
     ap.add_argument("--subreddits", nargs="*",
                     help="screen these subreddits instead of the popular listing")
+    ap.add_argument("--threshold", type=float, default=0.80,
+                    help="min share of flaired posts for a sub to count as "
+                         "flair-enforcing (default 0.80)")
     ap.add_argument("--out", default="flair_probe")
     args = ap.parse_args()
 
@@ -126,78 +133,77 @@ def main():
     for k, v in bot.items():
         print(f"  {k}: {v}")
 
-    print(f"\n=== GATE 1: screening subreddits for required flair ===")
+    print("\n=== GATE 1: what post_requirements actually exposes ===")
+    probe_keys = {}
+    for name in ("AskReddit", "movies", "DnD"):
+        try:
+            probe_keys[name] = requirement_keys(reddit.subreddit(name))
+        except Exception as exc:  # noqa: BLE001
+            probe_keys[name] = [f"<{type(exc).__name__}>"]
+        print(f"  r/{name}: {probe_keys[name]}")
+
+    print("\n=== GATE 1: sampling subreddits ===")
     if args.subreddits:
         names = list(args.subreddits)
     else:
-        names = []
-        for sr in reddit.subreddits.popular(limit=args.subs):
-            names.append(sr.display_name)
+        names = [sr.display_name for sr in reddit.subreddits.popular(limit=args.subs)]
 
-    required, not_required, unknown, nsfw_skipped = [], [], [], []
+    enforcing, loose, nsfw_skipped, failed = [], [], [], []
+    tally = {label: {"total": 0, "unflaired": 0} for _, label in BUCKETS}
+    per_sub = {}
+
     for name in names:
         try:
             sr = reddit.subreddit(name)
             if getattr(sr, "over18", False):
-                nsfw_skipped.append(name)          # payout needs SFW anyway
+                nsfw_skipped.append(name)          # payout requires SFW anyway
                 continue
-            state = flair_required(sr)
+            rows, rate = sample_subreddit(sr, args.posts)
         except Exception as exc:  # noqa: BLE001
-            unknown.append((name, f"{type(exc).__name__}"))
+            failed.append((name, type(exc).__name__))
             continue
-        if state is True:
-            required.append(name)
-        elif state is False:
-            not_required.append(name)
-        else:
-            unknown.append((name, "no is_flair_required key"))
-
-    screened = len(required) + len(not_required)
-    print(f"  screened {screened} SFW subs · flair required in {len(required)}"
-          f" ({100*len(required)/screened:.0f}%)" if screened else "  screened 0")
-    print(f"  skipped: {len(nsfw_skipped)} NSFW, {len(unknown)} unreadable")
-
-    print(f"\n=== GATE 1: unflaired rate by post age, in flair-required subs ===")
-    tally = {label: {"total": 0, "unflaired": 0} for _, label in BUCKETS}
-    per_sub = {}
-    for name in required:
-        try:
-            rows = sample_subreddit(reddit.subreddit(name), args.posts)
-        except Exception as exc:  # noqa: BLE001
-            print(f"  r/{name}: sample failed ({type(exc).__name__})")
+        if not rows:
             continue
-        sub_unflaired = sum(1 for r in rows if not r["flaired"])
-        per_sub[name] = {"sampled": len(rows), "unflaired": sub_unflaired}
+        per_sub[name] = {"sampled": len(rows), "flair_rate": round(rate, 3)}
+        if rate < args.threshold:
+            loose.append(name)
+            continue
+        enforcing.append(name)
         for r in rows:
             b = bucket_for(r["age_min"])
             tally[b]["total"] += 1
             if not r["flaired"]:
                 tally[b]["unflaired"] += 1
-        print(f"  r/{name:<24} {sub_unflaired:>3}/{len(rows):<3} unflaired")
 
-    print(f"\n  {'age':<10}{'posts':>8}{'unflaired':>12}{'rate':>8}")
+    print(f"  sampled {len(per_sub)} SFW subs · "
+          f"{len(enforcing)} enforce flair (>={args.threshold:.0%} flaired) · "
+          f"{len(loose)} do not")
+    print(f"  skipped {len(nsfw_skipped)} NSFW, {len(failed)} errored")
+
+    print(f"\n=== GATE 1: unflaired rate by post age, in flair-enforcing subs ===")
+    print(f"  {'age':<10}{'posts':>8}{'unflaired':>12}{'rate':>8}")
     for _, label in BUCKETS:
         t = tally[label]
         rate = (100 * t["unflaired"] / t["total"]) if t["total"] else 0
         print(f"  {label:<10}{t['total']:>8}{t['unflaired']:>12}{rate:>7.1f}%")
 
-    fresh = tally["<15m"]
-    old = tally[">24h"]
+    fresh, old = tally["<15m"], tally[">24h"]
     fresh_rate = (100 * fresh["unflaired"] / fresh["total"]) if fresh["total"] else None
     old_rate = (100 * old["unflaired"] / old["total"]) if old["total"] else None
 
     print("\n=== VERDICT ===")
     if fresh_rate is None or old_rate is None:
-        print("  Inconclusive — not enough posts in the extreme buckets. Raise --subs.")
+        print("  Inconclusive — empty age bucket. Raise --subs or --posts.")
     elif fresh_rate < 2 and old_rate < 2:
-        print(f"  Native flair requirement HOLDS ({fresh_rate:.1f}% fresh, "
-              f"{old_rate:.1f}% old). Option A is dead — go to Option B.")
+        print(f"  Flair enforcement HOLDS ({fresh_rate:.1f}% fresh, {old_rate:.1f}% old).")
+        print("  No grace-period gap to sell into.")
     elif fresh_rate > old_rate + 5:
-        print(f"  Setting LEAKS and mods clean up ({fresh_rate:.1f}% fresh → "
-              f"{old_rate:.1f}% old). That gap is the chore. Option A is ALIVE.")
+        print(f"  Enforcement LEAKS and mods clean up ({fresh_rate:.1f}% fresh -> "
+              f"{old_rate:.1f}% old).")
+        print("  That decay is the manual chore. A grace-period tool has a market.")
     else:
-        print(f"  Leaks but nobody cleans up ({fresh_rate:.1f}% fresh, "
-              f"{old_rate:.1f}% old). Weak felt pain — treat Option A as unproven.")
+        print(f"  Leaks but nobody cleans up ({fresh_rate:.1f}% fresh, {old_rate:.1f}% old).")
+        print("  No felt pain. Treat the chore as unproven.")
 
     os.makedirs(OUT_DIR, exist_ok=True)
     path = os.path.join(OUT_DIR, f"{args.out}.json")
@@ -205,11 +211,12 @@ def main():
         json.dump({
             "generated": datetime.now(tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
             "assistantbot": bot,
-            "screened": screened,
-            "flair_required": required,
-            "flair_not_required": not_required,
+            "post_requirements_keys": probe_keys,
+            "threshold": args.threshold,
+            "flair_enforcing": enforcing,
+            "flair_loose": loose,
             "nsfw_skipped": nsfw_skipped,
-            "unknown": unknown,
+            "failed": failed,
             "buckets": tally,
             "per_sub": per_sub,
         }, fh, indent=2)

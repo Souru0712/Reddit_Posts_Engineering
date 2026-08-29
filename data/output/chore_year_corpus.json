@@ -1,0 +1,550 @@
+{
+  "meta": {
+    "generated": "2026-08-29 16:23 UTC",
+    "sort": "top",
+    "time_filter": "year",
+    "quote": true,
+    "queryset": "chore",
+    "queries": [
+      "automate modmail",
+      "modmail auto response",
+      "remove unflaired posts",
+      "require post flair",
+      "modqueue backlog",
+      "clear the modqueue",
+      "verify new users",
+      "detect ban evasion",
+      "pin a comment automatically",
+      "schedule a post"
+    ],
+    "subreddits": [
+      "AutoModerator",
+      "ModSupport",
+      "ModHelp",
+      "needamod",
+      "Devvit"
+    ],
+    "searches": 50,
+    "raw_hits": 31,
+    "grid": {
+      "AutoModerator|automate modmail": 0,
+      "AutoModerator|modmail auto response": 0,
+      "AutoModerator|remove unflaired posts": 0,
+      "AutoModerator|require post flair": 0,
+      "AutoModerator|modqueue backlog": 0,
+      "AutoModerator|clear the modqueue": 0,
+      "AutoModerator|verify new users": 0,
+      "AutoModerator|detect ban evasion": 0,
+      "AutoModerator|pin a comment automatically": 0,
+      "AutoModerator|schedule a post": 0,
+      "ModSupport|automate modmail": 0,
+      "ModSupport|modmail auto response": 0,
+      "ModSupport|remove unflaired posts": 0,
+      "ModSupport|require post flair": 12,
+      "ModSupport|modqueue backlog": 0,
+      "ModSupport|clear the modqueue": 0,
+      "ModSupport|verify new users": 0,
+      "ModSupport|detect ban evasion": 0,
+      "ModSupport|pin a comment automatically": 0,
+      "ModSupport|schedule a post": 9,
+      "ModHelp|automate modmail": 0,
+      "ModHelp|modmail auto response": 0,
+      "ModHelp|remove unflaired posts": 0,
+      "ModHelp|require post flair": 6,
+      "ModHelp|modqueue backlog": 0,
+      "ModHelp|clear the modqueue": 0,
+      "ModHelp|verify new users": 0,
+      "ModHelp|detect ban evasion": 0,
+      "ModHelp|pin a comment automatically": 0,
+      "ModHelp|schedule a post": 3,
+      "needamod|automate modmail": 0,
+      "needamod|modmail auto response": 0,
+      "needamod|remove unflaired posts": 0,
+      "needamod|require post flair": 0,
+      "needamod|modqueue backlog": 0,
+      "needamod|clear the modqueue": 0,
+      "needamod|verify new users": 0,
+      "needamod|detect ban evasion": 0,
+      "needamod|pin a comment automatically": 0,
+      "needamod|schedule a post": 0,
+      "Devvit|automate modmail": 1,
+      "Devvit|modmail auto response": 0,
+      "Devvit|remove unflaired posts": 0,
+      "Devvit|require post flair": 0,
+      "Devvit|modqueue backlog": 0,
+      "Devvit|clear the modqueue": 0,
+      "Devvit|verify new users": 0,
+      "Devvit|detect ban evasion": 0,
+      "Devvit|pin a comment automatically": 0,
+      "Devvit|schedule a post": 0
+    },
+    "errors": []
+  },
+  "posts": [
+    {
+      "id": "1uka69q",
+      "subreddit": "ModSupport",
+      "title": "Anybody have the admins make a post under your name?!?",
+      "author": "Perfidious_Redt",
+      "score": 11,
+      "num_comments": 44,
+      "created_utc": "2026-07-01",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1uka69q/anybody_have_the_admins_make_a_post_under_your/",
+      "selftext": "update;\n\n# I'm  Leaving this up so y'all can learn from idiocy.  If you use the 'schedule a post' feature, set some kind of reminder for yourself, so you don't feel like you're losing your damn mind, or being digitally 'creepy-crawled' .\n\n# I'm so glad I checked the mod logs, lol.\n\n  \n`I was on reddit, and I see the latest post on a sub I mod, is one made by me, made an hour before. But I didn't post it. I was on reddit on hour before, I know I didn't post it, mostly because I'm me and I know what I did, but also because I wasn't posting an hour before I'd been reading something on a different sub.`\n\n`I double checked to make sure I wasn't just confused, same account for sure, post even showed up in my post history. It was also something I'd never post, a lame engagement-baity \"hey everyone, share your favorite ___ \"`\n\n`Is this new? Why TF do it for my on my own account? Did anyone else know they could just Jager your account like that??`\n\n#",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1tgoi9b",
+      "subreddit": "Devvit",
+      "title": "Title: 🔬 Introducing BotPrints: Passive Behavioral Forensics for Mod Teams (Zero Content Bias)",
+      "author": "No_View_1998",
+      "score": 4,
+      "num_comments": 16,
+      "created_utc": "2026-05-18",
+      "link": "https://www.reddit.com/r/Devvit/comments/1tgoi9b/title_introducing_botprints_passive_behavioral/",
+      "selftext": "Hey everyone,\n\nI’m thrilled to share that **BotPrints** has been officially approved by Reddit! It’s a new type of security app built to silently fingerprint account-level behavioral metadata—**not user content**—to flag sophisticated bot networks before they start spamming.\n\n# ✨ Why BotPrints is Different\n\nMost tools are reactive (like CAPTCHAs) or rely on reading text (which introduces language bias). BotPrints runs entirely in the background using academically validated metadata signals.\n\n* **Proactive & Passive**: Zero friction for your regular community members.\n* **Coordinated Ring Detection**: Automatically cross-correlates posting timestamps to catch entire bot farms using the same automation schedulers.\n* **Mod-Only Forensics**: The entire dashboard is nested inside a private, mod-only Custom Post so bad actors can't see or game their risk scores.\n\n# 🧠 The 5 Behavioral Signals We Track\n\n1. **Temporal Regularity** (Metronomic posting intervals)\n2. **Circadian Entropy** (24-hour activity distribution anomalies)\n3. **Engagement Ratio** (Highly skewed post-to-comment ratios)\n4. **Edit Absence** (AI generation patterns that never get edited)\n5. **Burst-Silence** (Batch scheduling spikes followed by dead silence)\n\n🛠️ What You Get\n\n* An interactive **5-Signal Radar Chart** for flagged users.\n* Clear **Watch**, **Restrict (Mute)**, and **Dismiss** actions integrated directly into the UI.\n* Automated Modmail notifications if a high-risk user on your \"Watchlist\" posts again. \n\n# 🚀 How to Install\n\nNavigate to your Subreddit **Mod Tools → App Directory** and search for **BotPrints**. Once installed, click the mod menu item **📊 Open BotPrints Dashboard** to initialize it. (It includes a one-click Demo Mode so you can see how the charts look right away!)\n\nI'd love to get your feedback, especially if you manage high-traffic or heavily targeted subreddits. Let me know what you think or if there are specific metadata patterns you want added to the scoring engine!\n\n# [LINK To BotPrints](https://developers.reddit.com/apps/botprints)",
+      "over_18": false,
+      "matched_queries": [
+        "automate modmail"
+      ]
+    },
+    {
+      "id": "1ttfwfx",
+      "subreddit": "ModHelp",
+      "title": "How to Require Post Flair Like this Subreddit?",
+      "author": "Wolfpiresnow",
+      "score": 0,
+      "num_comments": 15,
+      "created_utc": "2026-06-01",
+      "link": "https://www.reddit.com/r/modhelp/comments/1ttfwfx/how_to_require_post_flair_like_this_subreddit/",
+      "selftext": "I’m on iOS and was wondering how to require post flairs on my Subreddit. I already asked this question, but my post had gotten buried under newer posts so I decided to make another. I’m still confused on how I should do this even after reading other posts on how to enable post flair requirement. Thank you for reading!",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1uhbyd2",
+      "subreddit": "ModSupport",
+      "title": "Users are able to post without flair even though I have toggled on \"require post flair\" and also enabled \"allow users to edit flair\". And there is no approved user except me, Is there something I am missing?",
+      "author": "Organic-Concept4760",
+      "score": 6,
+      "num_comments": 11,
+      "created_utc": "2026-06-27",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1uhbyd2/users_are_able_to_post_without_flair_even_though/",
+      "selftext": "I request if mods can take a look a the subreddit I moderate and tell whats the issue its an NSFW sub",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1q3tbv5",
+      "subreddit": "ModSupport",
+      "title": "Required flair",
+      "author": "allthroat247",
+      "score": 5,
+      "num_comments": 10,
+      "created_utc": "2026-01-04",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1q3tbv5/required_flair/",
+      "selftext": "How do I require post flairs? Right now it’s optional but I don’t see a way to make them a requirement",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1u385yj",
+      "subreddit": "ModSupport",
+      "title": "Most effective way to auto-flair support posts as support posts",
+      "author": "DrTankHead",
+      "score": 1,
+      "num_comments": 9,
+      "created_utc": "2026-06-11",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1u385yj/most_effective_way_to_autoflair_support_posts_as/",
+      "selftext": "# Edit: Solved. Just was being misled by what it meant by \"edit\" in the mandatory post flair settings, leading me to believe they could just modify what the flair said. \n\nHi. I help run and manage a subreddit that deals in community-based support as well as discussions on a particular subject and showcasing custom content on that subject.\n\nWhat I'm looking to figure out, is most users don't properly flair posts and I don't want to require post flairs because then they can just edit them and it'll break a few things, but I want some system to automatically tag the appropriate flair to the post.\n\nAutoMod might work, but it requires manual setup and I'm looking for something that can do this with minimal setup and kinda just work.\n\nI've seen other Devvit things regarding flairs, but it seems most deal with doing stuff \\_after\\_ the flair is assigned, not assigning the flair after analyzing the post.\n\nI'm looking to see what solutions other moderators have, are you using devvit stuff, automod, custom bots?",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1q12bcc",
+      "subreddit": "ModHelp",
+      "title": "Subreddit set to require post flairs, but some users can't set flair.",
+      "author": "Soul-Burn",
+      "score": 0,
+      "num_comments": 9,
+      "created_utc": "2026-01-01",
+      "link": "https://www.reddit.com/r/modhelp/comments/1q12bcc/subreddit_set_to_require_post_flairs_but_some/",
+      "selftext": "Hello!\n\nI moderate a decently large subreddit (/r/factorio). In the last couple of months, some users have been complaining that they can not set flairs when creating posts.\n\nThe subreddit is set to allow, and even require post flairs, yet many posts come without a flair set on them.\n\nMod tools -> Settings -> Posts & Comments -> Require post flair is set enabled.\n\nThey have checked this from desktop, mobile, old, and new reddit.\n\n[This comment](https://www.reddit.com/r/factorio/comments/1phd5zf/weekly_question_thread/nttq3d2/) shows screenshots of the issue for one of the users. It happens to several users.\n\nDoes this happen to anyone else?\n\nThanks for your help.",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1u86mk5",
+      "subreddit": "ModSupport",
+      "title": "Has reddit removed flairs being mandatory?",
+      "author": "RidsBabs",
+      "score": 6,
+      "num_comments": 8,
+      "created_utc": "2026-06-17",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1u86mk5/has_reddit_removed_flairs_being_mandatory/",
+      "selftext": "Moderating a sub where flairs are mandatory, I haven’t messed with any of the flairs or rules around flairs in months and I’ve noticed over the last few weeks that despite having post flairs as mandatory, posts are being uploaded without a post flair.\n\nRequire post flairs is also still checked for the sub.",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1u12sor",
+      "subreddit": "ModSupport",
+      "title": "How to set flairs to sort by new?",
+      "author": "itsahhmemario",
+      "score": 2,
+      "num_comments": 8,
+      "created_utc": "2026-06-09",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1u12sor/how_to_set_flairs_to_sort_by_new/",
+      "selftext": "I already have required posting flairs for my subreddit and users are asking if they can have the option to sort by flair. \n\nI can't seem to find this setting, I'm using old reddit but have also tried on new reddit and still can't find it.",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1soafvz",
+      "subreddit": "ModSupport",
+      "title": "How do I schedule a post from a mobile app?",
+      "author": "skiffts",
+      "score": 1,
+      "num_comments": 8,
+      "created_utc": "2026-04-17",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1soafvz/how_do_i_schedule_a_post_from_a_mobile_app/",
+      "selftext": "I open the tab for scheduled posts, writes that it is empty, click schedule a post, but a window pops up with the usual post editor without the \"postpone\" button or something.",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1qqgnmm",
+      "subreddit": "ModSupport",
+      "title": "[JSON Format in body of scheduled posts] I schedule a post on my sub and when it was automatically uploaded the next day the post body was like JSON format.",
+      "author": "adept-no-1",
+      "score": 2,
+      "num_comments": 7,
+      "created_utc": "2026-01-29",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1qqgnmm/json_format_in_body_of_scheduled_posts_i_schedule/",
+      "selftext": "Reddit developers fix this issue. I deleted the post before taking a screenshot. \n\nThe post body of the scheduled post was in JSON format and I thought it would be normal when it auto uploads but even after uploading the post body was in JSON format.",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1r3zaj0",
+      "subreddit": "ModSupport",
+      "title": "HOW DO I ENFORCE POST FLAIR",
+      "author": "DoubleFistMeRaw",
+      "score": 0,
+      "num_comments": 7,
+      "created_utc": "2026-02-13",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1r3zaj0/how_do_i_enforce_post_flair/",
+      "selftext": "i have “require post flair” turned on but it does NOT prevent any users from posting without a flair and i don’t know what to do.\n\nPLEASE HELP",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1v47apj",
+      "subreddit": "ModHelp",
+      "title": "Making Flairs Mandatory (solution, 2026)",
+      "author": "tired_of_the_woes",
+      "score": 0,
+      "num_comments": 7,
+      "created_utc": "2026-07-23",
+      "link": "https://www.reddit.com/r/modhelp/comments/1v47apj/making_flairs_mandatory_solution_2026/",
+      "selftext": "To make flairs mandatory on desktop you (as of 07/2027 software) you:\n\n1. Go to mod tools\n2. Scroll to \"Posts & Comments\"\n3. Scroll to you see \"Require Post Flair\"\n4. Click the toggle to turn it onn",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1ugzs0h",
+      "subreddit": "ModHelp",
+      "title": "Is it impossible to schedule posts with images in them?",
+      "author": "ARTHER1A",
+      "score": 2,
+      "num_comments": 6,
+      "created_utc": "2026-06-27",
+      "link": "https://www.reddit.com/r/modhelp/comments/1ugzs0h/is_it_impossible_to_schedule_posts_with_images_in/",
+      "selftext": "Hello guys, I literally made this nice poster for a Weekly Event that I'm planning on announcing every wednesday and now **Reddit is not even letting me schedule a post if it has an image**. *ugh* \n\nThis is happening on mobile web on New Reddit because on the app scheduling posts isn't even an option.\n\n**Is this just how it is or is it possible somehow?** The image is what attracts users to posts so I'm not looking forward to having a boring post.\n\n**Platform:** Mobile web",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1sn91xy",
+      "subreddit": "ModHelp",
+      "title": "Post rules not being applied",
+      "author": "therealamberrose",
+      "score": 11,
+      "num_comments": 5,
+      "created_utc": "2026-04-16",
+      "link": "https://www.reddit.com/r/modhelp/comments/1sn91xy/post_rules_not_being_applied/",
+      "selftext": "I have numerous rules set around posts in r/ttcafterloss and some are not working.\n\n1. It's set to require post flair, but it actually shows as optional.\n2. It's set to require user flair, but doesn't actually require it.\n\nCould someone help? I've had a few friends attempt to post so I can see what it shows them, both on desktop and mobile.\n\nThanks!\n\nEDIT: I basically just turned off the requirements, saved, then turned them back on and it works... 🤷🏼‍♀️",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1tztmmh",
+      "subreddit": "ModSupport",
+      "title": "Require Post Flair not working?",
+      "author": "RxMurloc",
+      "score": 7,
+      "num_comments": 5,
+      "created_utc": "2026-06-08",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1tztmmh/require_post_flair_not_working/",
+      "selftext": "Hello!\n\nOne of the subreddits I moderate is, for some unknown reason, allowing SOME users to make posts without using a flair. These users all appear to be new users we have never seen before so it's not like an approved user or mod bypassing the reddit settings. Its just some new random users who can magically ignore the rules.\n\nI have triple checked that the Require Post Flair toggle is set to on, yet for some reason we have users posting content without flairs!\n\nIs this a bug with reddit currently? Or should I look through some settings on our sub to see if something got scrambled in the automod or somewhere else? (We don't have any settings for flairing posts with the automod, but you never know lol)\n\nAny advice would be greatly appreciated!",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1szj6vx",
+      "subreddit": "ModSupport",
+      "title": "No longer able to schedule posts in the mobile app?",
+      "author": "Mossfire85",
+      "score": 5,
+      "num_comments": 5,
+      "created_utc": "2026-04-30",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1szj6vx/no_longer_able_to_schedule_posts_in_the_mobile_app/",
+      "selftext": "Yesterday I was able to schedule several posts in the mobile app and then edit them in my computer. However today when I went to make a post and set it to schedule, the three dots are gone. It looks like maybe the app was updated? Is there still a way to schedule a post on mobile??\n\nEDIT: I can't save as draft either?? So there's no way for me to save it without posting on mobile??",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1qr293a",
+      "subreddit": "ModSupport",
+      "title": "Postflair question",
+      "author": "Casinoroyale008",
+      "score": 3,
+      "num_comments": 5,
+      "created_utc": "2026-01-30",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1qr293a/postflair_question/",
+      "selftext": "Hey hey,  \nI moderate r/vermieten and I want every post to **require** a post flair. I actually set everything up according to plan:\n\n* Requiring post flairs is enabled\n* I’ve also created several post flairs\n* When you try to create a post, there’s a red dot next to post flairs (indicating they’re mandatory)\n\nNevertheless, I can still post without selecting a post flair. What could be the reason for this?  \nThanks in advance!",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1tysaup",
+      "subreddit": "ModHelp",
+      "title": "Schedule a post not working",
+      "author": "alvmadrigal",
+      "score": 2,
+      "num_comments": 5,
+      "created_utc": "2026-06-06",
+      "link": "https://www.reddit.com/r/modhelp/comments/1tysaup/schedule_a_post_not_working/",
+      "selftext": "I was trying to schedule a post on Android, Mac and Windows and I wasn't able to schedule a post. Please help",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1rrzls5",
+      "subreddit": "ModSupport",
+      "title": "I need help w this part.",
+      "author": "Icy-Opening-3990",
+      "score": 1,
+      "num_comments": 5,
+      "created_utc": "2026-03-12",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1rrzls5/i_need_help_w_this_part/",
+      "selftext": "As a mod and started of /herbshealing. I'm unsure of how to schedule a post. Any info os greatly appreciated.",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1ruv3sz",
+      "subreddit": "ModSupport",
+      "title": "How are people avoiding post flairs before posting?",
+      "author": "x-LeananSidhe-x",
+      "score": 3,
+      "num_comments": 4,
+      "created_utc": "2026-03-16",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1ruv3sz/how_are_people_avoiding_post_flairs_before_posting/",
+      "selftext": "on the two subreddits i moderator I have [\"Require post flair\"](https://imgur.com/a/bnBoBxn) turned on, but people are still able to post without using them. I'm Pretty much the only person who uses them. Is there an additional setting i need to turn on or is it just a bug at the moment?",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1oik20m",
+      "subreddit": "ModSupport",
+      "title": "What happens to posts with deleted flairs?",
+      "author": "And-Bells",
+      "score": 1,
+      "num_comments": 4,
+      "created_utc": "2025-10-28",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1oik20m/what_happens_to_posts_with_deleted_flairs/",
+      "selftext": "My sub requires post flair, but I want to delete a flair that hasn't been serving us. I'll be going back through recent posts and changing their flair.\n\nWhat happens to posts where flair is required if I delete the flair before changing it on the post?",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1vq086w",
+      "subreddit": "ModSupport",
+      "title": "Unable to schedule a post",
+      "author": "Specialist-Fail8539",
+      "score": 1,
+      "num_comments": 4,
+      "created_utc": "2026-08-16",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1vq086w/unable_to_schedule_a_post/",
+      "selftext": "Hello! Last Sunday I made a post that should be posted on repeat every Sunday, but something went wrong\n\nToday I tried to make it again, making sure I did everything right, but it was posted right away and not in 10 minutes, I also can't see any scheduled posts in mod tools.\n\nI searched for some info on the internet, people recommended Scheduling a post for the next week/day and then it will work, but then again, my post was just sent right away.\n\nI haven't tried scheduling a post from a desktop, I was only using my phone all this time to schedule a post \n\nAny help would be appreciated!",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1np4pc2",
+      "subreddit": "ModHelp",
+      "title": "Automod and post flair requirement don't seem to funciton.",
+      "author": "jfb3",
+      "score": 1,
+      "num_comments": 4,
+      "created_utc": "2025-09-24",
+      "link": "https://www.reddit.com/r/modhelp/comments/1np4pc2/automod_and_post_flair_requirement_dont_seem_to/",
+      "selftext": "In a smaller subreddit I mod...   \n\n\n\n\n\nI have post flairs created.  \n\nI have 'Require post flair' set to On. \n\n\n\nYet post get created with any flair. \n\n\n\n\\---------- \n\n\n\nNone of the actions/rules/etc. I've created in Automod seem to work either.  \n\n\n\n\\---------- \n\n\n\n\n\nThis is mind boggling...\n\n  \nDesktop.",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1oyu379",
+      "subreddit": "ModSupport",
+      "title": "Require flair for every post not working",
+      "author": "r2girls",
+      "score": 0,
+      "num_comments": 4,
+      "created_utc": "2025-11-16",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1oyu379/require_flair_for_every_post_not_working/",
+      "selftext": "Set up post flairs at:      \nMod Settings --> Look and Feel --> Post Flair\n\n* Toggled on \"Enable post Flair\"\n* Toggled on \"Let users Assign and edit\"\n\nIndividual Flairs set up and have both \"For Mods Only\" and \"Allow users to edit\" off via the slider \n\n\nWent to:    \nMod Settings --> Post and Comments --> Require Post Flair and toggled it on.\n\nWhen a user it seems to be requiring that a flair be required but the first option is \"No Flair\" and the post is permitted to be submitted using that option.  \n\nWhat am I missing to make it required that someone pick one of the other categories of user flair?",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1oc1nou",
+      "subreddit": "ModSupport",
+      "title": "Can't seem to disable \"No Flair\" option",
+      "author": "Ok-Huckleberry5836",
+      "score": 0,
+      "num_comments": 4,
+      "created_utc": "2025-10-21",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1oc1nou/cant_seem_to_disable_no_flair_option/",
+      "selftext": "Hi, I want to remove the No Flair option for posts, but I'm having a hard time disabling the option.\n\nI've selected 'Require Post Flair' in the Posts & Comments page, as well as the 'Enable Post Flair' and 'Let users assign and edit' option on the Look and Feel -> Post Flair page, but the No Flair option is still there.\n\nI am on Chrome on a PC if that's helpful.",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1qquub4",
+      "subreddit": "ModHelp",
+      "title": "Help on Scheduling a Post",
+      "author": "cougarnyc",
+      "score": 0,
+      "num_comments": 4,
+      "created_utc": "2026-01-30",
+      "link": "https://www.reddit.com/r/modhelp/comments/1qquub4/help_on_scheduling_a_post/",
+      "selftext": "I'm using Chrome on my Desktop and having a heck of a hard time scheduling a post for my restricted subreddit. I am the sole moderator and I'd like to set post up. For some reason the hour glass is greyed out so when I hit the POST button, it actually posts instead of giving me an option to delay the post to a scheduled time.\n\nAny idea why I'm not given that option as the moderator?",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1qwx1lb",
+      "subreddit": "ModSupport",
+      "title": "Scheduled posts - question",
+      "author": "Jewlzkitty",
+      "score": 3,
+      "num_comments": 2,
+      "created_utc": "2026-02-05",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1qwx1lb/scheduled_posts_question/",
+      "selftext": "I scheduled a post for a few weeks out but realized after I set it for the wrong date. Can I change that and how would I do it?\n\nThanks!",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1tsu5e2",
+      "subreddit": "ModSupport",
+      "title": "Scheduling posts",
+      "author": "bigs_nuno",
+      "score": 2,
+      "num_comments": 2,
+      "created_utc": "2026-05-31",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1tsu5e2/scheduling_posts/",
+      "selftext": "Can a mod without post permissions schedule a post? \n\nI'm trying to schedule a post on a sub at which I don't have the post permission, and it gives me a general error. I could do it before, and I had that permission by then. \n\nI can't see the scheduled posts, either. \n\nEither it's because of my mod permissions or some Reddit issue.",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    },
+    {
+      "id": "1oj8hoj",
+      "subreddit": "ModHelp",
+      "title": "Updated 2025: Require post flair",
+      "author": "brentspine",
+      "score": 2,
+      "num_comments": 2,
+      "created_utc": "2025-10-29",
+      "link": "https://www.reddit.com/r/modhelp/comments/1oj8hoj/updated_2025_require_post_flair/",
+      "selftext": "Since I only found the following two threads when searching for it on DDG, I'm gonna post about it here, so hopefully it shows up in future search results. [Thread 1](https://www.reddit.com/r/ModSupport/comments/1g707qh/how_do_i_make_post_flair_mandatory/) and [Thread 2](https://www.reddit.com/r/modhelp/comments/1afagnx/how_do_you_make_tags_and_flair_required_on_a/)\n\nSeems to only work on Desktop:\n\nGo to Mod Tools > Posts & Comments > Require Post Flair\n\nOr [https://www.reddit.com/mod/your-community/posts-and-comments](https://www.reddit.com/mod/your-community/posts-and-comments) \\-> Require Post Flair\n\nEdit: Formatting for Links\n\nEdit 2: This could be an updated post for the thread linked in the auto response, as it is the same as the post I mentioned above",
+      "over_18": false,
+      "matched_queries": [
+        "require post flair"
+      ]
+    },
+    {
+      "id": "1u2rfz6",
+      "subreddit": "ModSupport",
+      "title": "Scheduled posts confusion",
+      "author": "igavr",
+      "score": 1,
+      "num_comments": 1,
+      "created_utc": "2026-06-11",
+      "link": "https://www.reddit.com/r/ModSupport/comments/1u2rfz6/scheduled_posts_confusion/",
+      "selftext": "Hi, I've got a question about scheduled posts: the 10 weeks in Mod in Tights achievement for moderators. I froze at 8/10 after I haven't posted for about a month. Now that I schedule a post, it doesn't count no matter whether it is scheduled and waiting to be posted or has been posted already. The counter doesn't move. Not that I chase this achievement, but I'm definitely curious about the mechanics behind this. I put sone effort and now I'm losing interest because all the combinations I tried so far did not result in anything. \n\nPlease explain how this works and advise on how I could act accordingly",
+      "over_18": false,
+      "matched_queries": [
+        "schedule a post"
+      ]
+    }
+  ]
+}

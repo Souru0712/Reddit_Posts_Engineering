@@ -1,186 +1,177 @@
-# Devvit Recon — Scoring & Build Decision
+# Devvit Recon — Decision
 
-Corpus: `RECON_CAPTURE.md` (58 threads) + `data/output/automod_chore_corpus.json`
-(17 threads, chore-noun sweep). This file is the scoring pass and the scope decision.
+Corpora in `data/output/`. This file is the scoring pass and the scope freeze.
 
 ---
 
-## ⚠️ Gate 1 — CORRECTED. My earlier answer was wrong.
+## Verdict: build the flair enforcement fix. Option B is dead.
 
-**I previously reported there is no native "require post flair" toggle.** That came from a
-third-party blog and a search-engine summary. The corpus now contradicts it from three
-independent primary sources:
+The chore-noun sweep across all five subs, `top`/`year`, closed both open questions.
 
-| Thread | Date | What it says |
+---
+
+## Gate 1 — ANSWERED by the corpus. The native toggle is broken, and mods say so.
+
+`require post flair` returned **18 threads in 12 months** (r/ModSupport 12, r/ModHelp 6)
+from ~14 distinct mods. The titles are the evidence:
+
+| Date | Sub | Thread |
 |---|---|---|
-| [8860hi](https://www.reddit.com/r/AutoModerator/comments/8860hi/) | 2018-03 | *"reddit's redesign having a setting for required post flairs"* |
-| [guu20t](https://www.reddit.com/r/AutoModerator/comments/guu20t/) | 2020-06 | Names the exact path: *Mod Tools > Post Flair Settings > … > Post Requirements > require post flair set to on* |
-| [10kh06f](https://www.reddit.com/r/AutoModerator/comments/10kh06f/) | 2023-01 | *"I require post flair on all of the posts in my sub"* — working |
+| 2026-06-27 | ModSupport | **"Users are able to post without flair even though I have toggled on 'require post flair'"** |
+| 2026-06-08 | ModSupport | "Require Post Flair not working?" |
+| 2026-06-17 | ModSupport | "Has reddit removed flairs being mandatory?" |
+| 2026-06-01 | ModHelp | "How to Require Post Flair Like this Subreddit?" (15 comments) |
+| 2026-04-16 | ModHelp | "Post rules not being applied" |
+| 2026-03-16 | ModSupport | "How are people avoiding post flairs before posting?" |
+| 2026-02-13 | ModSupport | "HOW DO I ENFORCE POST FLAIR" |
+| 2026-01-01 | ModHelp | "Subreddit set to require post flairs, but some users can't set flair" |
+| 2025-11-16 | ModSupport | "Require flair for every post not working" |
+| 2025-09-24 | ModHelp | "Automod and post flair requirement don't seem to funciton" |
 
-**The native toggle exists.** What matters now is the failure mode u/sveltegamine reports
-immediately after switching it on:
+Plus 8 more. **The 2020 leak u/sveltegamine reported is still leaking in 2026.**
 
-> *"However we are still getting posts that do not have flair… I asked one person who was
-> posting, if they could tell me what they were posting from, and they replied that they
-> were on mobile. I also know a fair amount of people on my sub use old reddit."*
+### This reframes the product
 
-So the native setting **leaks** — old reddit and older mobile clients bypass it. That was
-true in 2020. **Whether it still leaks in 2026 is now the single question that decides
-this build**, and it is not answerable from the corpus.
+We scoped a *grace period* — a kinder alternative to a blunt removal. That is not what
+these mods are asking for. They turned the native setting **on** and it **does not work**.
 
-### The find that reframes everything
+> **You are not selling kindness. You are selling the flair requirement that actually works.**
 
-[djpoq5](https://www.reddit.com/r/AutoModerator/comments/djpoq5/) (2019, u/dequeued)
-publishes r/AutoModerator's own **auto-response macros**. One is a purpose-built regex for
-flair-enforcement questions — its trigger list includes `delay`, `period`, `hours?`,
-`minutes?`, `time`. The canned reply:
-
-> *"AutoModerator is not able to do this. AutoModerator evaluates content as it's being
-> posted. Since link flair cannot be set until* after *a submission is already posted…
-> submissions often not have link flair when AutoModerator is looking at it.*
-> *Additionally, AutoModerator is not able to review content after time has passed.
-> AutoModerator can only evaluate something when it's created, edited, or reported, and at
-> no other times.*
-> *To enforce link flair requirements, you will need a custom bot. Check out /r/AssistantBOT."*
-
-Three things follow, and they cut in different directions:
-
-1. **My "automod already covers the hard version" claim was also wrong.** A `flair_text: ""`
-   removal at submit time produces *false removals*, because on old reddit and mobile the
-   flair is set after posting. The automod workaround is broken for this use case, and
-   r/AutoModerator says so in an automated reply. **Row 1's conversion goes back up** — the
-   competitor is not a working automod rule.
-2. **The question is asked often enough that the sub automated the answer.** A community
-   only writes a macro for a question it is tired of answering. That is stronger frequency
-   evidence than any thread count in this corpus.
-3. **A named incumbent surfaces: r/AssistantBOT.** A pre-Devvit bot the sub officially
-   recommends for exactly this chore. Its current status is unknown and must be checked.
+That is a materially stronger pitch and it raises conversion. A mod who has already flipped
+the toggle and watched unflaired posts arrive anyway is pre-qualified: they have the
+problem, they tried the official fix, it failed, and they went to a support sub about it.
 
 ---
 
-## Gate 2 — Devvit directory: partially complete
+## Gate 2 — directory results
 
-Searched: `scheduler`, `timer`, `delayed`, `grace period`, `unflaired`.
+### Option B is dead. Not competitive — saturated.
 
-| Search | Result |
-|---|---|
-| `delayed` | **Nothing found** |
-| `grace period` | **Nothing found** |
-| `unflaired` | **Nothing found** |
-| `scheduler` | 5 apps — all *post publishing*, not delayed re-check |
-| `timer` | 3 apps — one relevant |
-
-### What is occupied
-
-| App | Installs | Blocks |
+| App | Installs | |
 |---|---|---|
-| **OP Reply Enforcer (reply-timer)** — *"cascading timers for initial community responses and mandatory OP replies"* | **3** | Row 1 sub-ask "remove if OP doesn't engage" — the TipOfMyTongue chore. Weak adoption. |
-| **Flair Scheduler** — *"Allow a flair to be used only on a certain day or set of days"* | **84** | Row 1 sub-ask "restrict content by day-of-week" |
-| Image Post Scheduler *(Winner – Best New Mod Tool)* | 384 | Nothing of ours — publishes scheduled content |
-| schedulerplus / Scheduler / EpisodeScheduler | 61 / 10 / 5 | Nothing of ours — same category |
+| **Modqueue Pruner** — *"Periodically removes posts and comments from the mod queue for deleted, suspended or shadowbanned users"* | **428** | Word-for-word Option B |
+| Suspended Remove — *"silently removes content from suspended or shadowbanned accounts… Zero configuration"* | 60 | Same chore again |
+| Modqueue Nuke | 1386 | Purge by age/reports/score/keyword |
+| Modqueue Tools | 364 | Queue analytics |
+| Subreddit Status | 230 | Queue monitoring |
+| Modqueue Alerts / Toolbox Notes Pruner / +5 more | 72 / 25 / — | |
 
-**Critical distinction: every "Scheduler" app publishes content at a time. None of them
-re-checks an existing post after a delay.** Those are different products that share a word.
+Twelve apps on the modqueue. **Drop Option B entirely.**
 
-### What is still clear
+### Option A's niche is open
 
-**No app matched `unflaired`, `grace period`, or `delayed`.** The v1 as scoped has no
-directory incumbent.
+`unflaired` · `grace period` · `delayed` · `cleanup` · `stale` · `flair reminder`
+→ **all empty.**
 
-### Still unsearched — do these
+One correction to my earlier claim: Devvit apps *do* act on elapsed time — Modqueue Pruner
+is "periodic", and Auto-Highlights *"removes them when they expire"* (3 installs). The
+elapsed-time trigger is not novel. **What is unoccupied is flair enforcement specifically.**
 
-`suspended` · `modqueue` · `cleanup` · `flair reminder` · `stale` · `expire`
+### AssistantBOT is alive — the one real competitor
 
-These cover row 1 sub-asks 4 and 6, which were never checked.
+`u/AssistantBOT1` last active **2026-08-17**. r/AssistantBOT: 591 subscribers, last post
+2024-11 *"Bots have been moved to a more powerful system."*
 
----
+This is the bot r/AutoModerator's auto-response officially recommends for flair enforcement.
+It is running. But it is beatable:
 
-## Install-count calibration — read this before committing to 50
-
-The screenshots give real adoption numbers, and they reset expectations:
-
-| Percentile of what's visible | Installs |
-|---|---|
-| Award-winning mod tool (Image Post Scheduler) | 384 |
-| Solid mid-tier (Flair Scheduler) | 84 |
-| Typical (schedulerplus) | 61 |
-| Long tail (Scheduler, EpisodeScheduler, OP Reply Enforcer) | 10, 5, 3 |
-
-**Your target of 50 qualifying installs lands between the 61 and 84 tier.** That is roughly
-top-quartile for a Devvit mod tool, and it is ~13% of what a category-winning app achieved.
-Achievable, but it is not the low bar the "50" number makes it sound like. Most apps in this
-directory never reach 10.
+- **Not a Devvit app.** It does not appear in the directory, cannot be one-click installed,
+  and does not count toward anyone's Developer Funds. Install friction is mod-invite plus
+  wiki config versus a directory button.
+- **Discovery has failed.** Eighteen mods hit this problem in the last year and not one of
+  those titles mentions AssistantBOT. Whatever it does, mods are not finding it.
+- **591 subscribers** on its own sub after years.
 
 ---
 
-## Chore-noun sweep — what it did and did not settle
+## What the sweep did NOT support
 
-Run: r/AutoModerator only, `time=all`. **17 threads. 5 of 10 queries returned zero.**
+**Row 19 (modmail auto-reply) is disconfirmed, and my hypothesis was wrong.** I argued its
+frequency of 1 was a query artifact. Given a chore-noun query set, `modmail auto response`
+returned **0** and `automate modmail` returned 1 — a Devvit product announcement, i.e. a
+false positive. The demand is not there. Row 19 drops.
 
-| Query | Hits | Read |
+Seven of ten chore queries returned zero in the year window: `modmail auto response`,
+`remove unflaired posts`, `modqueue backlog`, `clear the modqueue`, `verify new users`,
+`detect ban evasion`, `pin a comment automatically`.
+
+`schedule a post` returned 12 — Reddit's *native scheduler* is also visibly broken
+("Unable to schedule a post", "Schedule a post not working", "No longer able to schedule
+posts in the mobile app?"). Real pain, but 5+ Devvit scheduler apps already serve it. Skip.
+
+---
+
+## Scoring — the chosen row
+
+| Axis | Score | Evidence |
 |---|---|---|
-| `schedule a post` | 10 | All about automod's *scheduled posts* feature — syntax help and debugging. Different chore. Native scheduled posts + 5 Devvit apps now cover it. **Dead.** |
-| `require post flair` | 3 | **Gold.** All three are the Gate 1 evidence above. |
-| `remove unflaired posts` | 2 | Both genuine; one is a plain "help me write this rule" |
-| `modqueue backlog` | 1 | The dequeued macro post — the most valuable single hit in the corpus |
-| `automate modmail` | 1 | False positive (a `{{permalink}}` bug report) |
-| `modmail auto response`, `clear the modqueue`, `verify new users`, `detect ban evasion`, `pin a comment automatically` | **0** | — |
+| Frequency | **3** | 18 threads, 12 months, ~14 mods, still live |
+| Breadth | **3** | Any subreddit using post flair; no genre or NSFW skew |
+| Automod gap | **3** | r/AutoModerator's own macro: *"AutoModerator is not able to do this"* |
+| No incumbent | **2** | Nothing in the Devvit directory; AssistantBOT exists off-platform |
+| Build size | **3** | Scheduler + flair check + comment. Weekend-scoped |
+| | **14 / 15** | |
 
-**Row 19 remains untested.** This run covered r/AutoModerator only; modmail chatter lives in
-r/ModSupport and r/ModHelp. The primary sweep — all five subs, `top`/`year` — has not been
-run, and it is the only one that can produce prospects.
+Comfortably past the kill threshold of 12.
 
 ---
 
-## Revised recommendation
+## v1 — frozen
 
-The flair v1 is now **contingent**, not confirmed. Native require-post-flair exists; the
-whole value rests on whether it still leaks in 2026.
+> **Enforce post flair reliably: detect posts that are still unflaired after a configurable
+> delay, comment telling the author how to fix it, then remove. Restore automatically if
+> flair is added.**
 
-### Option A — original v1, contingent on one test
+Positioning is the native toggle's failure, not kindness: *"Require Post Flair, except it
+actually works."*
 
-> Timed removal of unflaired posts: configurable grace period, warning comment, auto-restore
-> on flair.
+Not in v1: the other five row-1 sub-asks, day-of-week rules, OP-engagement timers.
 
-Alive **only if** the native toggle still leaks. If Reddit closed that hole, the surviving
-market is subs with heavy old-reddit traffic plus mods who prefer a grace period to a hard
-block — a much smaller pool than we scored.
+### One open technical question — spike before writing features
 
-### Option B — the sub-ask nobody has checked, and it may be better
-
-> Clear modqueue entries whose author has since been suspended, deleted, or banned.
-
-Why it may beat Option A now:
-
-- **Zero false-positive risk.** A suspended account's post is unambiguously actionable. Nothing
-  to get wrong, no angry mod thread, so it holds the 7-day window.
-- **Remove-only permissions.** The cheapest possible install ask.
-- **Invisible to users.** No user-facing behavior means no community backlash surface.
-- **Topic-neutral.** Every sub with a modqueue, no genre skew, no NSFW concentration.
-- **Live 2026 demand** — u/coopersoar, r/ModHelp, Jan 2026, still open.
-- **Native alternative: none known.** Automod cannot act after time passes.
-
-Its weakness is lower emotional salience — nobody writes an angry post about modqueue lint —
-which usually means lower organic discovery.
-
-**I would not choose between these until the two tests below are done.** They are cheap and
-they decide it.
+Can an author set flair on their own **removed** post, and does a flair-change event fire
+for removed content? If either is no, use **filter** instead of remove at T+delay: the post
+sits in modqueue, stays recoverable, and the restore path never has to work.
 
 ---
 
-## Next actions, in order
+## Named prospects — all live, all 2026 unless noted
 
-1. **Test the native flair leak (20 min, decides Option A).** Enable Post Requirements →
-   require post flair in a test sub. Then try to submit without flair from (a) old.reddit.com,
-   (b) the official mobile app, (c) new reddit. **Any successful unflaired post = Option A is
-   alive.** All three blocked = Option A is dead, go to Option B.
-2. **Check r/AssistantBOT (10 min).** Is it still running? If yes, it is a direct incumbent
-   with years of head start. If it is dead, that is a vacuum *and* a migration pitch.
-3. **Finish the directory sweep (10 min).** Search `suspended`, `modqueue`, `cleanup`,
-   `stale`, `expire`, `flair reminder`. This is the Gate 2 check for Option B.
-4. **Run the primary chore sweep** — `python recon.py --queryset chore` across all five subs.
-   Still the only outstanding source of named prospects.
-5. **Then freeze scope**, and only then spike the auto-restore question (whether an author can
-   flair their own removed post, and whether a flair event fires for removed content).
+Reply in these threads when the app ships. This is the highest-conversion distribution move
+available and it is entirely async.
 
-Steps 1–3 are 40 minutes total and they determine what gets built.
+| Username | Thread | Sub |
+|---|---|---|
+| u/Organic-Concept4760 | Users able to post without flair despite the toggle | ModSupport |
+| u/Wolfpiresnow | How to Require Post Flair Like this Subreddit? (15c) | ModHelp |
+| u/RxMurloc | Require Post Flair not working? | ModSupport |
+| u/RidsBabs | Has reddit removed flairs being mandatory? | ModSupport |
+| u/DoubleFistMeRaw | HOW DO I ENFORCE POST FLAIR | ModSupport |
+| u/x-LeananSidhe-x | How are people avoiding post flairs before posting? | ModSupport |
+| u/Soul-Burn | Set to require post flairs, but some users can't set flair | ModHelp |
+| u/allthroat247 | Required flair | ModSupport |
+| u/DrTankHead | Most effective way to auto-flair support posts | ModSupport |
+| u/therealamberrose | Post rules not being applied | ModHelp |
+| u/Casinoroyale008 | Postflair question | ModSupport |
+| u/r2girls | Require flair for every post not working (2025-11) | ModSupport |
+| u/Ok-Huckleberry5836 | Can't seem to disable "No Flair" option (2025-10) | ModSupport |
+| u/jfb3 | Automod and post flair requirement don't function (2025-09) | ModHelp |
+
+**Read first, do not cold-pitch:** u/tired_of_the_woes, *"Making Flairs Mandatory (solution,
+2026)"* (ModHelp, 2026-07-23) and u/brentspine, *"Updated 2025: Require post flair"*
+(ModHelp, 2025-10). These publish the current workaround. They are either your competition
+or your best allies — know what they recommend before you ship.
+
+---
+
+## Note on the failed probe run
+
+`flair_probe.py`'s first run screened 120 subs and returned **zero** — it looked for an
+`is_flair_required` key that `post_requirements()` does not return. My defect. The script now
+measures behaviour instead (share of flaired posts per sub, unflaired rate bucketed by post
+age) and dumps the real endpoint keys so nothing is guessed twice. Raw failed run kept at
+`data/output/flair_probe_failed_run.json`.
+
+Gate 1 no longer depends on it — the corpus answered it. Re-running is now confirmatory:
+it would quantify *how much* leaks and how fast mods clean up, which is pitch material
+rather than a go/no-go.

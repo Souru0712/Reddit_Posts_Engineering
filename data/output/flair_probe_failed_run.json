@@ -1,0 +1,530 @@
+{
+  "generated": "2026-08-29 16:05 UTC",
+  "assistantbot": {
+    "u/AssistantBOT": {
+      "exists": true,
+      "last_activity": "2021-06-22",
+      "comment_karma": 6
+    },
+    "u/AssistantBOT1": {
+      "exists": true,
+      "last_activity": "2026-08-17",
+      "comment_karma": 0
+    },
+    "r/AssistantBOT": {
+      "exists": true,
+      "subscribers": 591,
+      "newest_post": "2024-11-08",
+      "newest_title": "Bots have been moved to a more powerful system"
+    }
+  },
+  "screened": 0,
+  "flair_required": [],
+  "flair_not_required": [],
+  "nsfw_skipped": [],
+  "unknown": [
+    [
+      "Home",
+      "no is_flair_required key"
+    ],
+    [
+      "AskReddit",
+      "no is_flair_required key"
+    ],
+    [
+      "NoStupidQuestions",
+      "no is_flair_required key"
+    ],
+    [
+      "BaldursGate3",
+      "no is_flair_required key"
+    ],
+    [
+      "facepalm",
+      "no is_flair_required key"
+    ],
+    [
+      "interestingasfuck",
+      "no is_flair_required key"
+    ],
+    [
+      "Damnthatsinteresting",
+      "no is_flair_required key"
+    ],
+    [
+      "LivestreamFail",
+      "no is_flair_required key"
+    ],
+    [
+      "pics",
+      "no is_flair_required key"
+    ],
+    [
+      "Palworld",
+      "no is_flair_required key"
+    ],
+    [
+      "AmItheAsshole",
+      "no is_flair_required key"
+    ],
+    [
+      "mildlyinfuriating",
+      "no is_flair_required key"
+    ],
+    [
+      "Piracy",
+      "no is_flair_required key"
+    ],
+    [
+      "PeterExplainsTheJoke",
+      "no is_flair_required key"
+    ],
+    [
+      "funny",
+      "no is_flair_required key"
+    ],
+    [
+      "AITAH",
+      "no is_flair_required key"
+    ],
+    [
+      "movies",
+      "no is_flair_required key"
+    ],
+    [
+      "Helldivers",
+      "no is_flair_required key"
+    ],
+    [
+      "gaming",
+      "no is_flair_required key"
+    ],
+    [
+      "worldnews",
+      "no is_flair_required key"
+    ],
+    [
+      "leagueoflegends",
+      "no is_flair_required key"
+    ],
+    [
+      "pcmasterrace",
+      "no is_flair_required key"
+    ],
+    [
+      "Unexpected",
+      "no is_flair_required key"
+    ],
+    [
+      "news",
+      "no is_flair_required key"
+    ],
+    [
+      "politics",
+      "no is_flair_required key"
+    ],
+    [
+      "wallstreetbets",
+      "no is_flair_required key"
+    ],
+    [
+      "todayilearned",
+      "no is_flair_required key"
+    ],
+    [
+      "nottheonion",
+      "no is_flair_required key"
+    ],
+    [
+      "memes",
+      "no is_flair_required key"
+    ],
+    [
+      "PublicFreakout",
+      "no is_flair_required key"
+    ],
+    [
+      "Wellthatsucks",
+      "no is_flair_required key"
+    ],
+    [
+      "explainlikeimfive",
+      "no is_flair_required key"
+    ],
+    [
+      "OutOfTheLoop",
+      "no is_flair_required key"
+    ],
+    [
+      "OnePiece",
+      "no is_flair_required key"
+    ],
+    [
+      "BlackPeopleTwitter",
+      "no is_flair_required key"
+    ],
+    [
+      "buildapc",
+      "no is_flair_required key"
+    ],
+    [
+      "HonkaiStarRail",
+      "no is_flair_required key"
+    ],
+    [
+      "SipsTea",
+      "no is_flair_required key"
+    ],
+    [
+      "Minecraft",
+      "no is_flair_required key"
+    ],
+    [
+      "mildlyinteresting",
+      "no is_flair_required key"
+    ],
+    [
+      "nfl",
+      "no is_flair_required key"
+    ],
+    [
+      "BeAmazed",
+      "no is_flair_required key"
+    ],
+    [
+      "DIY",
+      "no is_flair_required key"
+    ],
+    [
+      "nba",
+      "no is_flair_required key"
+    ],
+    [
+      "MapPorn",
+      "no is_flair_required key"
+    ],
+    [
+      "Steam",
+      "no is_flair_required key"
+    ],
+    [
+      "Overwatch",
+      "no is_flair_required key"
+    ],
+    [
+      "Genshin_Impact",
+      "no is_flair_required key"
+    ],
+    [
+      "classicwow",
+      "no is_flair_required key"
+    ],
+    [
+      "soccer",
+      "no is_flair_required key"
+    ],
+    [
+      "Eldenring",
+      "no is_flair_required key"
+    ],
+    [
+      "badroommates",
+      "no is_flair_required key"
+    ],
+    [
+      "personalfinance",
+      "no is_flair_required key"
+    ],
+    [
+      "antiwork",
+      "no is_flair_required key"
+    ],
+    [
+      "anime",
+      "no is_flair_required key"
+    ],
+    [
+      "wow",
+      "no is_flair_required key"
+    ],
+    [
+      "DnD",
+      "no is_flair_required key"
+    ],
+    [
+      "technology",
+      "no is_flair_required key"
+    ],
+    [
+      "WhitePeopleTwitter",
+      "no is_flair_required key"
+    ],
+    [
+      "EscapefromTarkov",
+      "no is_flair_required key"
+    ],
+    [
+      "unpopularopinion",
+      "no is_flair_required key"
+    ],
+    [
+      "popculturechat",
+      "no is_flair_required key"
+    ],
+    [
+      "videos",
+      "no is_flair_required key"
+    ],
+    [
+      "BestofRedditorUpdates",
+      "no is_flair_required key"
+    ],
+    [
+      "youtube",
+      "no is_flair_required key"
+    ],
+    [
+      "legaladvice",
+      "no is_flair_required key"
+    ],
+    [
+      "ffxiv",
+      "no is_flair_required key"
+    ],
+    [
+      "sysadmin",
+      "no is_flair_required key"
+    ],
+    [
+      "MadeMeSmile",
+      "no is_flair_required key"
+    ],
+    [
+      "CombatFootage",
+      "no is_flair_required key"
+    ],
+    [
+      "relationship_advice",
+      "no is_flair_required key"
+    ],
+    [
+      "discordapp",
+      "no is_flair_required key"
+    ],
+    [
+      "pcgaming",
+      "no is_flair_required key"
+    ],
+    [
+      "Games",
+      "no is_flair_required key"
+    ],
+    [
+      "ChatGPT",
+      "no is_flair_required key"
+    ],
+    [
+      "GlobalOffensive",
+      "no is_flair_required key"
+    ],
+    [
+      "2007scape",
+      "no is_flair_required key"
+    ],
+    [
+      "formula1",
+      "no is_flair_required key"
+    ],
+    [
+      "CuratedTumblr",
+      "no is_flair_required key"
+    ],
+    [
+      "Gamingcirclejerk",
+      "no is_flair_required key"
+    ],
+    [
+      "TikTokCringe",
+      "no is_flair_required key"
+    ],
+    [
+      "PiratedGames",
+      "no is_flair_required key"
+    ],
+    [
+      "techsupport",
+      "no is_flair_required key"
+    ],
+    [
+      "shitposting",
+      "no is_flair_required key"
+    ],
+    [
+      "theydidthemath",
+      "no is_flair_required key"
+    ],
+    [
+      "malelivingspace",
+      "no is_flair_required key"
+    ],
+    [
+      "WTF",
+      "no is_flair_required key"
+    ],
+    [
+      "cyberpunkgame",
+      "no is_flair_required key"
+    ],
+    [
+      "OldSchoolCool",
+      "no is_flair_required key"
+    ],
+    [
+      "coolguides",
+      "no is_flair_required key"
+    ],
+    [
+      "AskMen",
+      "no is_flair_required key"
+    ],
+    [
+      "dankmemes",
+      "no is_flair_required key"
+    ],
+    [
+      "feedthebeast",
+      "no is_flair_required key"
+    ],
+    [
+      "Warframe",
+      "no is_flair_required key"
+    ],
+    [
+      "UkraineWarVideoReport",
+      "no is_flair_required key"
+    ],
+    [
+      "SteamDeck",
+      "no is_flair_required key"
+    ],
+    [
+      "college",
+      "no is_flair_required key"
+    ],
+    [
+      "manga",
+      "no is_flair_required key"
+    ],
+    [
+      "CrazyFuckingVideos",
+      "no is_flair_required key"
+    ],
+    [
+      "rareinsults",
+      "no is_flair_required key"
+    ],
+    [
+      "amiwrong",
+      "no is_flair_required key"
+    ],
+    [
+      "Nijisanji",
+      "no is_flair_required key"
+    ],
+    [
+      "Kanye",
+      "no is_flair_required key"
+    ],
+    [
+      "KitchenConfidential",
+      "no is_flair_required key"
+    ],
+    [
+      "Fauxmoi",
+      "no is_flair_required key"
+    ],
+    [
+      "europe",
+      "no is_flair_required key"
+    ],
+    [
+      "iphone",
+      "no is_flair_required key"
+    ],
+    [
+      "Cooking",
+      "no is_flair_required key"
+    ],
+    [
+      "television",
+      "no is_flair_required key"
+    ],
+    [
+      "Truckers",
+      "no is_flair_required key"
+    ],
+    [
+      "ExplainTheJoke",
+      "no is_flair_required key"
+    ],
+    [
+      "marvelstudios",
+      "no is_flair_required key"
+    ],
+    [
+      "TwoXChromosomes",
+      "no is_flair_required key"
+    ],
+    [
+      "TrueOffMyChest",
+      "no is_flair_required key"
+    ],
+    [
+      "StableDiffusion",
+      "no is_flair_required key"
+    ],
+    [
+      "HonkaiStarRail_leaks",
+      "no is_flair_required key"
+    ],
+    [
+      "tifu",
+      "no is_flair_required key"
+    ],
+    [
+      "pathofexile",
+      "no is_flair_required key"
+    ],
+    [
+      "DotA2",
+      "no is_flair_required key"
+    ],
+    [
+      "Tekken",
+      "no is_flair_required key"
+    ]
+  ],
+  "buckets": {
+    "<15m": {
+      "total": 0,
+      "unflaired": 0
+    },
+    "15-60m": {
+      "total": 0,
+      "unflaired": 0
+    },
+    "1-6h": {
+      "total": 0,
+      "unflaired": 0
+    },
+    "6-24h": {
+      "total": 0,
+      "unflaired": 0
+    },
+    ">24h": {
+      "total": 0,
+      "unflaired": 0
+    }
+  },
+  "per_sub": {}
+}
