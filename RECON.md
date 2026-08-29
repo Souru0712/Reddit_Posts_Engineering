@@ -56,3 +56,21 @@ chores — that is the reading work, and `Times seen` in the generated table is
 
 Chore-level frequency comes from collapsing rows that say the same thing. Feed
 `recon_corpus.json` back into a session to do that clustering, then score.
+
+## Gate checks — `flair_probe.py`
+
+Automates Gate 1 (does native require-post-flair hold?) and Gate 2 (is
+AssistantBOT alive?). Read-only, same credentials as `recon.py`.
+
+```bash
+python flair_probe.py                      # 120 popular subs, ~3-5 min
+python flair_probe.py --subs 200           # wider screen
+python flair_probe.py --subreddits AskReddit gaming movies   # specific subs
+```
+
+Gate 1 measures the unflaired rate in flair-required subs, bucketed by post
+age. High when fresh and near zero when old means the setting leaks and mods
+clean up manually — that gap is the chore. Near zero everywhere means the
+native setting holds. High everywhere means it leaks but nobody minds.
+
+Writes `data/output/flair_probe.json`.
