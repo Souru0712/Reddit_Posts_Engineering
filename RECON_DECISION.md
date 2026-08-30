@@ -4,7 +4,18 @@ Corpora in `data/output/`. This file is the scoring pass and the scope freeze.
 
 ---
 
-## Verdict: build the flair enforcement fix. Option B is dead.
+## ⚠️ STATUS: SCOPE UNFROZEN — 2026-08-30
+
+A non-moderator alt account was blocked from posting unflaired on **both new reddit and
+old reddit**: *"Your post must contain post flair."* The native toggle **held** in both
+desktop clients.
+
+That contradicts the premise this build was frozen on. See "Alt-account test" below.
+**Do not write code until the mobile case is tested.**
+
+---
+
+## Earlier verdict (now in doubt): build the flair enforcement fix. Option B is dead.
 
 The chore-noun sweep across all five subs, `top`/`year`, closed both open questions.
 
@@ -154,7 +165,38 @@ regardless of the answer. UX A is nicer when available.
 
 **If time is short, build UX B and skip the test entirely.**
 
-### Test result — UX A is not available. Confirmed, not assumed.
+### Alt-account test, 2026-08-30 — the toggle did NOT leak on desktop
+
+Non-moderator alt, `Require Post Flair` on, submitting with no flair:
+
+| Client | Result |
+|---|---|
+| New reddit (desktop web) | **Blocked** — "Add flair and tags*" + *"Your post must contain post flair."* |
+| Old reddit (desktop web) | **Blocked** — "*choose a flair (none) [select]" + *"Your post must contain post flair."* |
+
+**Both desktop clients enforced it correctly.** The leak was not reproduced.
+
+#### What this does and does not settle
+
+It does **not** dispose of the 18 corpus threads — those are real mods reporting real
+failures through 2026. But it means the failure is not where we assumed.
+
+**Untested, and it is the case the evidence actually points at:** the official **mobile
+apps**. u/brentspine's line was *"Seems to only work on Desktop"* — and both clients tested
+here are desktop. The one client class the claim names is the one not exercised.
+
+Other unexamined explanations for the 18 threads: crossposts, third-party or API clients,
+or misconfiguration where flairs are mod-only so users cannot self-assign (which is
+literally u/Soul-Burn's thread, *"some users can't set flair"*).
+
+#### Consequence for UX A vs UX B
+
+**The question is moot for now.** Both were designs for restoring a post removed for
+missing flair. If unflaired posts cannot be submitted in the first place, there is little
+to remove and the product has no job. UX B remains the correct design *if* the chore
+survives — it just is not what decides anything today.
+
+### Earlier finding — an author cannot flair a removed post
 
 Tested 2026-08-29 on a removed post, viewed as its author: **no flair control exists
 anywhere** — not in the post's `...` menu (Edit post body / Save / Hide / Language /
